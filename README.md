@@ -19,7 +19,7 @@ rpm -qa --queryformat "    - %{NAME}-%{VERSION}-%{RELEASE}\n" | grep -v gpg-pubk
 ```
 - Debian:
 ```
-dpkg-query -W -f='    - ${Package}-${Version}\n'
+dpkg-query -W -f='    - ${Package}=${Version}\n'
 ```
 
 Benefits of this approach:
