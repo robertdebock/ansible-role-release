@@ -18,16 +18,6 @@ platforms:
     box: debian/jessie64
   - name: server-debian-buster64
     box: desc/buster64
-  - name: server-fedora-26-cloud-base
-    box: fedora/26-cloud-base
-  - name: server-fedora-27-cloud-base
-    box: fedora/27-cloud-base
-  - name: server-opensuse-openSUSE-42-2-x86-64
-    box: opensuse/openSUSE-42.2-x86_64
-  - name: server-ubuntu-trusty
-    box: ubuntu/trusty64
-  - name: server-ubuntu-zesty
-    box: ubuntu/zesty64
 provisioner:
   name: ansible
   lint:
