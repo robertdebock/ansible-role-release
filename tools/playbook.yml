@@ -1,0 +1,74 @@
+#!/usr/bin/env ansible-playbook
+---
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: create containers
+      docker_container:
+        name: "{{ item.name }}"
+        state: started
+        image: "{{ item.image }}"
+        command: sleep infinity
+      with_items:
+        - name: reference-centos-6
+          image: centos:6
+        - name: reference-centos-7
+          image: centos:7
+        - name: reference-debian-8
+          image: debian:8
+        - name: reference-debian-9
+          image: debian:9
+
+- hosts: all:!localhost
+  gather_facts: no
+
+  roles:
+    - role: robertdebock.bootstrap
+    - role: robertdebock.update
+
+  tasks:
+    - name: register packages (yum)
+      yum:
+        list: installed
+      register: yumresult
+      when:
+        - ansible_pkg_mgr == "yum"
+      changed_when: yes
+      notify:
+        - write yum packages to file
+
+    - name: register packages (apt)
+      shell: 'dpkg-query -W | awk "{ print \"- name: \"\$1\"\n  version: \"\$2 }"'
+      register: aptresult
+      when:
+        - ansible_pkg_mgr == "apt"
+      notify:
+        - write apt packages to file
+
+  handlers:
+    - name: write yum packages to file
+      copy:
+        content: "{{ yumresult.results | to_nice_yaml(indent=2) }}"
+        dest: "./{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+      delegate_to: localhost
+
+    - name: write apt packages to file
+      copy:
+        content: "{{ aptresult.stdout }}"
+        dest: "./{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+      delegate_to: localhost
+
+- hosts: localhost
+  gather_facts: no
+
+  tasks:
+    - name: delete containers
+      docker_container:
+        name: "{{ item.name }}"
+        state: absent
+      with_items:
+        - name: reference-centos-6
+        - name: reference-centos-7
+        - name: reference-debian-8
+        - name: reference-debian-9

@@ -10,13 +10,13 @@ driver:
 lint:
   name: yamllint
 platforms:
-  - name: server-centos-6
+  - name: release-centos-6
     box: centos/6
-  - name: server-centos-7
+  - name: release-centos-7
     box: centos/7
-  - name: server-debian-jessie64
+  - name: release-debian-jessie64
     box: debian/jessie64
-  - name: server-debian-buster64
+  - name: release-debian-buster64
     box: desc/buster64
 provisioner:
   name: ansible

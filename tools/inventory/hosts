@@ -1,0 +1,5 @@
+localhost ansible_connection=local
+reference-centos-6 ansible_connection=docker
+reference-centos-7 ansible_connection=docker
+reference-debian-8 ansible_connection=docker
+reference-debian-9 ansible_connection=docker
