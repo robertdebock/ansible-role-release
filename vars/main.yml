@@ -369,10 +369,10 @@ server_packages:
     - dbus-python-0.83.0-6.1.el6
     - deltarpm-3.5-0.5.20090913git.el6
     - desktop-file-utils-0.15-9.el6
-    - device-mapper-1.02.117-12.el6
-    - device-mapper-event-1.02.117-12.el6
-    - device-mapper-event-libs-1.02.117-12.el6
-    - device-mapper-libs-1.02.117-12.el6
+    - device-mapper-1.02.117-12.el6_9.1
+    - device-mapper-event-1.02.117-12.el6_9.1
+    - device-mapper-event-libs-1.02.117-12.el6_9.1
+    - device-mapper-libs-1.02.117-12.el6_9.1
     - device-mapper-persistent-data-0.6.2-0.1.rc7.el6
     - dhclient-4.1.1-53.P1.el6.centos.1
     - dhcp-common-4.1.1-53.P1.el6.centos.1
@@ -412,6 +412,7 @@ server_packages:
     - gmp-4.3.1-12.el6
     - gnupg2-2.0.14-8.el6
     - gpgme-1.1.8-3.el6
+    - gpg-pubkey-c105b9de-4e0fd3a3
     - gpm-libs-1.20.6-12.el6
     - grep-2.20-6.el6
     - groff-1.18.1.4-21.el6
@@ -443,17 +444,18 @@ server_packages:
     - kbd-1.15-11.el6
     - kbd-misc-1.15-11.el6
     - kernel-2.6.32-696.13.2.el6
-    - kernel-firmware-2.6.32-696.13.2.el6
+    - kernel-2.6.32-696.18.7.el6
+    - kernel-firmware-2.6.32-696.18.7.el6
     - keyutils-1.4-5.el6
     - keyutils-libs-1.4-5.el6
-    - kpartx-0.4.9-100.el6
+    - kpartx-0.4.9-100.el6_9.1
     - krb5-libs-1.10.3-65.el6
     - ledmon-0.79-1.el6
     - less-436-13.el6
     - libacl-2.2.49-7.el6_9.1
     - libaio-0.3.107-10.el6
     - libattr-2.4.44-7.el6
-    - libblkid-2.17.2-12.28.el6
+    - libblkid-2.17.2-12.28.el6_9.1
     - libcap-2.16-5.5.el6
     - libcap-ng-0.6.4-3.el6_0.1
     - libcom_err-1.41.12-23.el6
@@ -504,7 +506,7 @@ server_packages:
     - libusb1-1.0.9-0.7.rc1.el6
     - libuser-0.56.13-8.el6_7
     - libutempter-1.1.5-4.1.el6
-    - libuuid-2.17.2-12.28.el6
+    - libuuid-2.17.2-12.28.el6_9.1
     - libX11-1.6.4-3.el6
     - libX11-common-1.6.4-3.el6
     - libXau-1.0.6-4.el6
@@ -514,8 +516,8 @@ server_packages:
     - logrotate-3.7.8-28.el6
     - lsof-4.82-5.el6
     - lua-5.1.4-4.1.el6
-    - lvm2-2.02.143-12.el6
-    - lvm2-libs-2.02.143-12.el6
+    - lvm2-2.02.143-12.el6_9.1
+    - lvm2-libs-2.02.143-12.el6_9.1
     - m4-1.4.13-5.el6
     - mailx-12.4-8.el6_6
     - make-3.81-23.el6
@@ -536,7 +538,7 @@ server_packages:
     - net-tools-1.60-114.el6
     - newt-0.52.11-4.el6
     - newt-python-0.52.11-4.el6
-    - nfs-utils-1.2.3-75.el6
+    - nfs-utils-1.2.3-75.el6_9
     - nfs-utils-lib-1.1.5-13.el6
     - nspr-4.13.1-1.el6
     - nss-3.28.4-4.el6_9
@@ -627,7 +629,7 @@ server_packages:
     - shared-mime-info-0.70-6.el6
     - slang-2.2.1-1.el6
     - smartmontools-5.43-3.el6
-    - sos-3.2-54.el6.centos
+    - sos-3.2-54.el6.centos.1
     - sqlite-3.6.20-1.el6_7.2
     - strace-4.8-11.el6
     - sudo-1.8.6p3-29.el6_9
@@ -653,7 +655,7 @@ server_packages:
     - usbutils-003-6.el6
     - usermode-1.102-3.el6
     - ustr-1.0.4-9.1.el6
-    - util-linux-ng-2.17.2-12.28.el6
+    - util-linux-ng-2.17.2-12.28.el6_9.1
     - vconfig-1.9-8.1.el6
     - vim-common-7.4.629-5.el6_8.1
     - vim-enhanced-7.4.629-5.el6_8.1
