@@ -12,22 +12,27 @@ Requirements
 - Access to a repository containing packages, likely on the internet.
 - Ansible 2.2 or higher.
 
-Capture all packages with:
+Capture all packages after running the dependent Ansible roles (robertdebock.bootstrap):
 - CentOS:
 ```
 rpm -qa --queryformat "    - %{NAME}-%{VERSION}-%{RELEASE}\n" | grep -v gpg-pubkey | sort
 ```
+- Debian:
+```
+dpkg-query -W -f='    - ${Package}-${Version}\n'
+```
 
 Benefits of this approach:
 - A list of changed package is visible in code.
-- (Not tested) It's possible to downgrade to another "release".
 - This does not depend on Satellite. The repository can be a simple mirror.
 
 Drawbacks of this approach:
 - A "snapshot" of packages and versions has to be created.
+- Not listed packages are not managed/updated.
 
 Drawbacks of both approaches:
 - Changing package dependencies can result in orphaned packages.
+- (Not tested) It's possible to downgrade to another "release".
 
 Role Variables
 --------------

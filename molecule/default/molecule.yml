@@ -8,32 +8,32 @@ driver:
 lint:
   name: yamllint
 platforms:
-#  - name: server-archlinux
-#    image: base/archlinux
-#  - name: server-alpine-3.6
-#    image: alpine:3.6
-#  - name: server-alpine-3.7
-#    image: alpine:3.7
+  - name: server-archlinux
+    image: base/archlinux
+  - name: server-alpine-3.6
+    image: alpine:3.6
+  - name: server-alpine-3.7
+    image: alpine:3.7
   - name: server-centos-6
     image: centos:6
   - name: server-centos-7
     image: centos:7
-#  - name: server-debian-jessie
-#    image: debian:jessie
-#  - name: server-debian-buster
-#    image: debian:buster
-#  - name: server-fedora-26
-#    image: fedora:26
-#  - name: server-fedora-27
-#    image: fedora:27
-#  - name: server-opensuse-42.2
-#    image: opensuse:42.2
-#  - name: server-opensuse-42.3
-#    image: opensuse:42.3
-#  - name: server-ubuntu-zesty
-#    image: ubuntu:zesty
-#  - name: server-ubuntu-artful
-#    image: ubuntu:artful
+  - name: server-debian-jessie
+    image: debian:jessie
+  - name: server-debian-buster
+    image: debian:buster
+  - name: server-fedora-26
+    image: fedora:26
+  - name: server-fedora-27
+    image: fedora:27
+  - name: server-opensuse-42.2
+    image: opensuse:42.2
+  - name: server-opensuse-42.3
+    image: opensuse:42.3
+  - name: server-ubuntu-zesty
+    image: ubuntu:zesty
+  - name: server-ubuntu-artful
+    image: ubuntu:artful
 provisioner:
   name: ansible
   lint:

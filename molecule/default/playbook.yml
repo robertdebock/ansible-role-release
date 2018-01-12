@@ -5,7 +5,7 @@
   become: yes
 
   roles:
-    - role: ansible-role-server
+    - role: ansible-role-release
 
   tasks:
     - name: test connection

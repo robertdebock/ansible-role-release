@@ -1,6 +1,6 @@
 ---
 # tasks file for server
-- name: install software
+- name: install software (yum)
   yum:
     name: "{{ item }}"
   with_items:
@@ -9,3 +9,13 @@
       | default(server_packages['default'] )) }}"
   when:
     - ansible_pkg_mgr == "yum"
+
+- name: install software (apt)
+  yum:
+    name: "{{ item }}"
+  with_items:
+    - "{{ server_packages[ansible_distribution ~ '-' ~ ansible_distribution_major_version]
+      | default(server_packages[ansible_distribution]
+      | default(server_packages['default'] )) }}"
+  when:
+    - ansible_pkg_mgr == "apt"
