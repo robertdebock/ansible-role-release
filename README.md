@@ -15,7 +15,7 @@ Requirements
 Capture all packages with:
 - CentOS:
 ```
-rpm -qa --queryformat "    - %{NAME}-%{VERSION}-%{RELEASE}\n"| sort
+rpm -qa --queryformat "    - %{NAME}-%{VERSION}-%{RELEASE}\n" | grep -v gpg-pubkey | sort
 ```
 
 Benefits of this approach:

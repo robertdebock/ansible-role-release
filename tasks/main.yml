@@ -8,4 +8,4 @@
       | default(server_packages[ansible_distribution]
       | default(server_packages['default'] )) }}"
   when:
-    - ansible_distribution == "CentOS"
+    - ansible_pkg_mgr == "yum"
