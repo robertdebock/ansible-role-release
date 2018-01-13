@@ -1,4 +1,3 @@
-#!/usr/bin/env ansible-playbook
 ---
 - hosts: localhost
   gather_facts: no
@@ -39,7 +38,7 @@
         - write yum packages to file
 
     - name: register packages (apt)
-      shell: 'dpkg-query -W | awk "{ print \"- name: \"\$1\"\n  version: \"\$2 }"'
+      shell: 'dpkg-query -W | awk "{ print \"- name: \"\$1\"\n  version: \"\$2 }" ; echo'
       register: aptresult
       when:
         - ansible_pkg_mgr == "apt"

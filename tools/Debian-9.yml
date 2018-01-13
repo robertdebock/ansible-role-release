@@ -1,278 +1,279 @@
+---
 - name: adduser
-  version:3.115
+  version: 3.115
 - name: apt
-  version:1.4.8
+  version: 1.4.8
 - name: base-files
-  version:9.9+deb9u3
+  version: 9.9+deb9u3
 - name: base-passwd
-  version:3.5.43
+  version: 3.5.43
 - name: bash
-  version:4.4-5
+  version: 4.4-5
 - name: bsdutils
-  version:1:2.29.2-1
+  version: 1:2.29.2-1
 - name: bzip2
-  version:1.0.6-8.1
+  version: 1.0.6-8.1
 - name: ca-certificates
-  version:20161130+nmu1
+  version: 20161130+nmu1
 - name: coreutils
-  version:8.26-3
+  version: 8.26-3
 - name: dash
-  version:0.5.8-2.4
+  version: 0.5.8-2.4
 - name: debconf
-  version:1.5.61
+  version: 1.5.61
 - name: debian-archive-keyring
-  version:2017.5
+  version: 2017.5
 - name: debianutils
-  version:4.8.1.1
+  version: 4.8.1.1
 - name: dh-python
-  version:2.20170125
+  version: 2.20170125
 - name: diffutils
-  version:1:3.5-3
+  version: 1:3.5-3
 - name: dirmngr
-  version:2.1.18-8~deb9u1
+  version: 2.1.18-8~deb9u1
 - name: distro-info-data
-  version:0.36
+  version: 0.36
 - name: dpkg
-  version:1.18.24
+  version: 1.18.24
 - name: e2fslibs:amd64
-  version:1.43.4-2
+  version: 1.43.4-2
 - name: e2fsprogs
-  version:1.43.4-2
+  version: 1.43.4-2
 - name: file
-  version:1:5.30-1+deb9u1
+  version: 1:5.30-1+deb9u1
 - name: findutils
-  version:4.6.0+git+20161106-2
+  version: 4.6.0+git+20161106-2
 - name: gcc-6-base:amd64
-  version:6.3.0-18
+  version: 6.3.0-18
 - name: gnupg
-  version:2.1.18-8~deb9u1
+  version: 2.1.18-8~deb9u1
 - name: gnupg-agent
-  version:2.1.18-8~deb9u1
+  version: 2.1.18-8~deb9u1
 - name: gnupg-l10n
-  version:2.1.18-8~deb9u1
+  version: 2.1.18-8~deb9u1
 - name: gpgv
-  version:2.1.18-8~deb9u1
+  version: 2.1.18-8~deb9u1
 - name: grep
-  version:2.27-2
+  version: 2.27-2
 - name: gzip
-  version:1.6-5+b1
+  version: 1.6-5+b1
 - name: hostname
-  version:3.18+b1
+  version: 3.18+b1
 - name: inetutils-ping
-  version:2:1.9.4-2+b1
+  version: 2:1.9.4-2+b1
 - name: init-system-helpers
-  version:1.48
+  version: 1.48
 - name: iproute2
-  version:4.9.0-1+deb9u1
+  version: 4.9.0-1+deb9u1
 - name: iso-codes
-  version:3.75-1
+  version: 3.75-1
 - name: libacl1:amd64
-  version:2.2.52-3+b1
+  version: 2.2.52-3+b1
 - name: libapt-inst2.0:amd64
-  version:1.4.8
+  version: 1.4.8
 - name: libapt-pkg5.0:amd64
-  version:1.4.8
+  version: 1.4.8
 - name: libassuan0:amd64
-  version:2.4.3-2
+  version: 2.4.3-2
 - name: libattr1:amd64
-  version:1:2.4.47-2+b2
+  version: 1:2.4.47-2+b2
 - name: libaudit-common
-  version:1:2.6.7-2
+  version: 1:2.6.7-2
 - name: libaudit1:amd64
-  version:1:2.6.7-2
+  version: 1:2.6.7-2
 - name: libblkid1:amd64
-  version:2.29.2-1
+  version: 2.29.2-1
 - name: libbz2-1.0:amd64
-  version:1.0.6-8.1
+  version: 1.0.6-8.1
 - name: libc-bin
-  version:2.24-11+deb9u1
+  version: 2.24-11+deb9u1
 - name: libc6:amd64
-  version:2.24-11+deb9u1
+  version: 2.24-11+deb9u1
 - name: libcap-ng0:amd64
-  version:0.7.7-3+b1
+  version: 0.7.7-3+b1
 - name: libcomerr2:amd64
-  version:1.43.4-2
+  version: 1.43.4-2
 - name: libdb5.3:amd64
-  version:5.3.28-12+deb9u1
+  version: 5.3.28-12+deb9u1
 - name: libdebconfclient0:amd64
-  version:0.227
+  version: 0.227
 - name: libelf1:amd64
-  version:0.168-1
+  version: 0.168-1
 - name: libexpat1:amd64
-  version:2.2.0-2+deb9u1
+  version: 2.2.0-2+deb9u1
 - name: libfdisk1:amd64
-  version:2.29.2-1
+  version: 2.29.2-1
 - name: libffi6:amd64
-  version:3.2.1-6
+  version: 3.2.1-6
 - name: libgcc1:amd64
-  version:1:6.3.0-18
+  version: 1:6.3.0-18
 - name: libgcrypt20:amd64
-  version:1.7.6-2+deb9u2
+  version: 1.7.6-2+deb9u2
 - name: libgmp10:amd64
-  version:2:6.1.2+dfsg-1
+  version: 2:6.1.2+dfsg-1
 - name: libgnutls30:amd64
-  version:3.5.8-5+deb9u3
+  version: 3.5.8-5+deb9u3
 - name: libgpg-error0:amd64
-  version:1.26-2
+  version: 1.26-2
 - name: libhogweed4:amd64
-  version:3.3-1+b2
+  version: 3.3-1+b2
 - name: libidn11:amd64
-  version:1.33-1
+  version: 1.33-1
 - name: libksba8:amd64
-  version:1.3.5-2
+  version: 1.3.5-2
 - name: libldap-2.4-2:amd64
-  version:2.4.44+dfsg-5+deb9u1
+  version: 2.4.44+dfsg-5+deb9u1
 - name: libldap-common
-  version:2.4.44+dfsg-5+deb9u1
+  version: 2.4.44+dfsg-5+deb9u1
 - name: liblz4-1:amd64
-  version:0.0~r131-2+b1
+  version: 0.0~r131-2+b1
 - name: liblzma5:amd64
-  version:5.2.2-1.2+b1
+  version: 5.2.2-1.2+b1
 - name: libmagic-mgc
-  version:1:5.30-1+deb9u1
+  version: 1:5.30-1+deb9u1
 - name: libmagic1:amd64
-  version:1:5.30-1+deb9u1
+  version: 1:5.30-1+deb9u1
 - name: libmnl0:amd64
-  version:1.0.4-2
+  version: 1.0.4-2
 - name: libmount1:amd64
-  version:2.29.2-1
+  version: 2.29.2-1
 - name: libmpdec2:amd64
-  version:2.4.2-1
+  version: 2.4.2-1
 - name: libncursesw5:amd64
-  version:6.0+20161126-1+deb9u1
+  version: 6.0+20161126-1+deb9u1
 - name: libnettle6:amd64
-  version:3.3-1+b2
+  version: 3.3-1+b2
 - name: libnpth0:amd64
-  version:1.3-1
+  version: 1.3-1
 - name: libp11-kit0:amd64
-  version:0.23.3-2
+  version: 0.23.3-2
 - name: libpam-modules:amd64
-  version:1.1.8-3.6
+  version: 1.1.8-3.6
 - name: libpam-modules-bin
-  version:1.1.8-3.6
+  version: 1.1.8-3.6
 - name: libpam-runtime
-  version:1.1.8-3.6
+  version: 1.1.8-3.6
 - name: libpam0g:amd64
-  version:1.1.8-3.6
+  version: 1.1.8-3.6
 - name: libpcre3:amd64
-  version:2:8.39-3
+  version: 2:8.39-3
 - name: libpython-stdlib:amd64
-  version:2.7.13-2
+  version: 2.7.13-2
 - name: libpython2.7-minimal:amd64
-  version:2.7.13-2+deb9u2
+  version: 2.7.13-2+deb9u2
 - name: libpython2.7-stdlib:amd64
-  version:2.7.13-2+deb9u2
+  version: 2.7.13-2+deb9u2
 - name: libpython3-stdlib:amd64
-  version:3.5.3-1
+  version: 3.5.3-1
 - name: libpython3.5-minimal:amd64
-  version:3.5.3-1
+  version: 3.5.3-1
 - name: libpython3.5-stdlib:amd64
-  version:3.5.3-1
+  version: 3.5.3-1
 - name: libreadline7:amd64
-  version:7.0-3
+  version: 7.0-3
 - name: libsasl2-2:amd64
-  version:2.1.27~101-g0780600+dfsg-3
+  version: 2.1.27~101-g0780600+dfsg-3
 - name: libsasl2-modules:amd64
-  version:2.1.27~101-g0780600+dfsg-3
+  version: 2.1.27~101-g0780600+dfsg-3
 - name: libsasl2-modules-db:amd64
-  version:2.1.27~101-g0780600+dfsg-3
+  version: 2.1.27~101-g0780600+dfsg-3
 - name: libselinux1:amd64
-  version:2.6-3+b3
+  version: 2.6-3+b3
 - name: libsemanage-common
-  version:2.6-2
+  version: 2.6-2
 - name: libsemanage1:amd64
-  version:2.6-2
+  version: 2.6-2
 - name: libsepol1:amd64
-  version:2.6-2
+  version: 2.6-2
 - name: libsmartcols1:amd64
-  version:2.29.2-1
+  version: 2.29.2-1
 - name: libsqlite3-0:amd64
-  version:3.16.2-5+deb9u1
+  version: 3.16.2-5+deb9u1
 - name: libss2:amd64
-  version:1.43.4-2
+  version: 1.43.4-2
 - name: libssl1.1:amd64
-  version:1.1.0f-3+deb9u1
+  version: 1.1.0f-3+deb9u1
 - name: libstdc++6:amd64
-  version:6.3.0-18
+  version: 6.3.0-18
 - name: libsystemd0:amd64
-  version:232-25+deb9u1
+  version: 232-25+deb9u1
 - name: libtasn1-6:amd64
-  version:4.10-1.1
+  version: 4.10-1.1
 - name: libtinfo5:amd64
-  version:6.0+20161126-1+deb9u1
+  version: 6.0+20161126-1+deb9u1
 - name: libudev1:amd64
-  version:232-25+deb9u1
+  version: 232-25+deb9u1
 - name: libustr-1.0-1:amd64
-  version:1.0.4-6
+  version: 1.0.4-6
 - name: libuuid1:amd64
-  version:2.29.2-1
+  version: 2.29.2-1
 - name: login
-  version:1:4.4-4.1
+  version: 1:4.4-4.1
 - name: lsb-base
-  version:9.20161125
+  version: 9.20161125
 - name: lsb-release
-  version:9.20161125
+  version: 9.20161125
 - name: mawk
-  version:1.3.3-17+b3
+  version: 1.3.3-17+b3
 - name: mime-support
-  version:3.60
+  version: 3.60
 - name: mount
-  version:2.29.2-1
+  version: 2.29.2-1
 - name: multiarch-support
-  version:2.24-11+deb9u1
+  version: 2.24-11+deb9u1
 - name: ncurses-base
-  version:6.0+20161126-1+deb9u1
+  version: 6.0+20161126-1+deb9u1
 - name: ncurses-bin
-  version:6.0+20161126-1+deb9u1
+  version: 6.0+20161126-1+deb9u1
 - name: netbase
-  version:5.4
+  version: 5.4
 - name: openssl
-  version:1.1.0f-3+deb9u1
+  version: 1.1.0f-3+deb9u1
 - name: passwd
-  version:1:4.4-4.1
+  version: 1:4.4-4.1
 - name: perl-base
-  version:5.24.1-3+deb9u2
+  version: 5.24.1-3+deb9u2
 - name: pinentry-curses
-  version:1.0.0-2
+  version: 1.0.0-2
 - name: python
-  version:2.7.13-2
+  version: 2.7.13-2
 - name: python-apt
-  version:1.4.0~beta3
+  version: 1.4.0~beta3
 - name: python-apt-common
-  version:1.4.0~beta3
+  version: 1.4.0~beta3
 - name: python-minimal
-  version:2.7.13-2
+  version: 2.7.13-2
 - name: python-simplejson
-  version:3.10.0-1
+  version: 3.10.0-1
 - name: python2.7
-  version:2.7.13-2+deb9u2
+  version: 2.7.13-2+deb9u2
 - name: python2.7-minimal
-  version:2.7.13-2+deb9u2
+  version: 2.7.13-2+deb9u2
 - name: python3
-  version:3.5.3-1
+  version: 3.5.3-1
 - name: python3-minimal
-  version:3.5.3-1
+  version: 3.5.3-1
 - name: python3.5
-  version:3.5.3-1
+  version: 3.5.3-1
 - name: python3.5-minimal
-  version:3.5.3-1
+  version: 3.5.3-1
 - name: readline-common
-  version:7.0-3
+  version: 7.0-3
 - name: sed
-  version:4.4-1
+  version: 4.4-1
 - name: sensible-utils
-  version:0.0.9+deb9u1
+  version: 0.0.9+deb9u1
 - name: sudo
-  version:1.8.19p1-2.1
+  version: 1.8.19p1-2.1
 - name: sysvinit-utils
-  version:2.88dsf-59.9
+  version: 2.88dsf-59.9
 - name: tar
-  version:1.29b-1.1
+  version: 1.29b-1.1
 - name: tzdata
-  version:2017c-0+deb9u1
+  version: 2017c-0+deb9u1
 - name: util-linux
-  version:2.29.2-1
+  version: 2.29.2-1
 - name: xz-utils
-  version:5.2.2-1.2+b1
+  version: 5.2.2-1.2+b1
 - name: zlib1g:amd64
-  version:1:1.2.8.dfsg-5
+  version: 1:1.2.8.dfsg-5

@@ -20,7 +20,5 @@ platforms:
     box: desc/buster64
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
 scenario:
   name: vagrant
