@@ -5,7 +5,9 @@ Several tools to manage or use this role
 Run `ansible-galaxy install -r requirements.yml` to download all required roles.
 
 # Releasing
-When you want to create a release, run `ansible-playbook playbook.yml` to:
+When you want to create a release:
+- `vagrant up` to start virtual machines.
+- `ansible-playbook.yml` to start container and
 - Create containers
 - Bootstrap
 - Update

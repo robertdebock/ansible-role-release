@@ -10,17 +10,18 @@
         image: "{{ item.image }}"
         command: sleep infinity
       with_items:
-        - name: reference-centos-6
+        - name: reference-centos-6-cnt
           image: centos:6
-        - name: reference-centos-7
+        - name: reference-centos-7-cnt
           image: centos:7
-        - name: reference-debian-8
+        - name: reference-debian-8-cnt
           image: debian:8
-        - name: reference-debian-9
+        - name: reference-debian-9-cnt
           image: debian:9
 
 - hosts: all:!localhost
   gather_facts: no
+  become: yes
 
   roles:
     - role: robertdebock.bootstrap
@@ -28,18 +29,18 @@
 
   tasks:
     - name: register packages (yum)
-      yum:
-        list: installed
-      register: yumresult
+      shell: >
+        rpm -qa --queryformat '%{NAME} %{VERSION}\n' | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 } END { print "..." }'
+      register: yumpackages
       when:
         - ansible_pkg_mgr == "yum"
-      changed_when: yes
       notify:
         - write yum packages to file
 
     - name: register packages (apt)
-      shell: 'dpkg-query -W | awk "{ print \"- name: \"\$1\"\n  version: \"\$2 }" ; echo'
-      register: aptresult
+      shell: >
+        dpkg-query -W | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 } END { print "..." }'
+      register: aptpackages
       when:
         - ansible_pkg_mgr == "apt"
       notify:
@@ -48,14 +49,14 @@
   handlers:
     - name: write yum packages to file
       copy:
-        content: "{{ yumresult.results | to_nice_yaml(indent=2) }}"
-        dest: "./{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+        content: "{{ yumpackages.stdout }}"
+        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version}}-{{ ansible_virtualization_type }}.yml"
       delegate_to: localhost
 
     - name: write apt packages to file
       copy:
-        content: "{{ aptresult.stdout }}"
-        dest: "./{{ ansible_distribution }}-{{ ansible_distribution_major_version}}.yml"
+        content: "{{ aptpackages.stdout }}"
+        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version}}-{{ ansible_virtualization_type }}.yml"
       delegate_to: localhost
 
 - hosts: localhost
@@ -67,7 +68,7 @@
         name: "{{ item.name }}"
         state: absent
       with_items:
-        - name: reference-centos-6
-        - name: reference-centos-7
-        - name: reference-debian-8
-        - name: reference-debian-9
+        - name: reference-centos-6-cnt
+        - name: reference-centos-7-cnt
+        - name: reference-debian-8-cnt
+        - name: reference-debian-9-cnt
