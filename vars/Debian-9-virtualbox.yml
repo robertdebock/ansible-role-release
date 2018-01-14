@@ -52,10 +52,10 @@ packages:
   - gpgv-2.1.18-8~deb9u1
   - grep-2.27-2
   - groff-base-1.22.3-9
+  - grub2-common-2.02~beta3-5
   - grub-common-2.02~beta3-5
   - grub-pc-2.02~beta3-5
   - grub-pc-bin-2.02~beta3-5
-  - grub2-common-2.02~beta3-5
   - gzip-1.6-5+b1
   - hdparm-9.51+ds-1
   - hostname-3.18+b1
@@ -64,9 +64,9 @@ packages:
   - ienglish-common-3.4.00-5
   - ifupdown-0.8.19
   - init-1.48
-  - init-system-helpers-1.48
   - initramfs-tools-0.130
   - initramfs-tools-core-0.130
+  - init-system-helpers-1.48
   - installation-report-2.62
   - iproute2-4.9.0-1+deb9u1
   - iptables-1.6.0+snapshot20161117-6
@@ -90,17 +90,17 @@ packages:
   - libasprintf0v5:amd64-0.19.8.1-2
   - libassuan0:amd64-2.4.3-2
   - libattr1:amd64-1:2.4.47-2+b2
-  - libaudit-common-1:2.6.7-2
   - libaudit1:amd64-1:2.6.7-2
+  - libaudit-common-1:2.6.7-2
   - libbind9-140:amd64-1:9.10.3.dfsg.P4-12.3+deb9u3
   - libblkid1:amd64-2.29.2-1
   - libbsd0:amd64-0.8.3-1
   - libbz2-1.0:amd64-1.0.6-8.1
+  - libc6:amd64-2.24-11+deb9u1
+  - libcap2:amd64-1:2.25-1
+  - libcap-ng0:amd64-0.7.7-3+b1
   - libc-bin-2.24-11+deb9u1
   - libc-l10n-2.24-11+deb9u1
-  - libc6:amd64-2.24-11+deb9u1
-  - libcap-ng0:amd64-0.7.7-3+b1
-  - libcap2:amd64-1:2.25-1
   - libclass-isa-perl-0.36-5
   - libcomerr2:amd64-1.43.4-2
   - libcryptsetup4:amd64-2:1.7.3-4
@@ -110,8 +110,8 @@ packages:
   - libdebconfclient0:amd64-0.227
   - libdevmapper1.02.1:amd64-2:1.02.137-2
   - libdiscover2-2.1.2-7.1
-  - libdns-export162-1:9.10.3.dfsg.P4-12.3+deb9u3
   - libdns162:amd64-1:9.10.3.dfsg.P4-12.3+deb9u3
+  - libdns-export162-1:9.10.3.dfsg.P4-12.3+deb9u3
   - libedit2:amd64-3.1-20160903-3
   - libelf1:amd64-0.168-1
   - libestr0-0.1.10-2
@@ -131,8 +131,8 @@ packages:
   - libglib2.0-0:amd64-2.50.3-2
   - libglib2.0-data-2.50.3-2
   - libgmp10:amd64-2:6.1.2+dfsg-1
-  - libgnutls-openssl27:amd64-3.5.8-5+deb9u3
   - libgnutls30:amd64-3.5.8-5+deb9u3
+  - libgnutls-openssl27:amd64-3.5.8-5+deb9u3
   - libgpg-error0:amd64-1.26-2
   - libgpm2:amd64-1.20.4-6.2+b1
   - libgssapi-krb5-2:amd64-1.15-1+deb9u1
@@ -146,10 +146,10 @@ packages:
   - libip6tc0:amd64-1.6.0+snapshot20161117-6
   - libiptc0:amd64-1.6.0+snapshot20161117-6
   - libirs141:amd64-1:9.10.3.dfsg.P4-12.3+deb9u3
-  - libisc-export160-1:9.10.3.dfsg.P4-12.3+deb9u3
   - libisc160:amd64-1:9.10.3.dfsg.P4-12.3+deb9u3
   - libisccc140:amd64-1:9.10.3.dfsg.P4-12.3+deb9u3
   - libisccfg140:amd64-1:9.10.3.dfsg.P4-12.3+deb9u3
+  - libisc-export160-1:9.10.3.dfsg.P4-12.3+deb9u3
   - libk5crypto3:amd64-1.15-1+deb9u1
   - libkadm5clnt-mit11:amd64-1.15-1+deb9u1
   - libkadm5srv-mit11:amd64-1.15-1+deb9u1
@@ -164,15 +164,15 @@ packages:
   - libldap-2.4-2:amd64-2.4.44+dfsg-5+deb9u1
   - libldap-common-2.4.44+dfsg-5+deb9u1
   - liblocale-gettext-perl-1.07-3+b1
-  - liblockfile-bin-1.14-1+b1
   - liblockfile1:amd64-1.14-1+b1
+  - liblockfile-bin-1.14-1+b1
   - liblogging-stdlog0:amd64-1.0.5-2+b2
   - liblognorm5:amd64-2.0.1-1.1+b1
   - liblwres141:amd64-1:9.10.3.dfsg.P4-12.3+deb9u3
   - liblz4-1:amd64-0.0~r131-2+b1
   - liblzma5:amd64-5.2.2-1.2+b1
-  - libmagic-mgc-1:5.30-1+deb9u1
   - libmagic1:amd64-1:5.30-1+deb9u1
+  - libmagic-mgc-1:5.30-1+deb9u1
   - libmnl0:amd64-1.0.4-2
   - libmount1:amd64-2.29.2-1
   - libmpdec2:amd64-2.4.2-1
@@ -187,11 +187,11 @@ packages:
   - libnpth0:amd64-1.3-1
   - libnuma1:amd64-2.0.11-2.1
   - libp11-kit0:amd64-0.23.3-2
+  - libpam0g:amd64-1.1.8-3.6
   - libpam-modules:amd64-1.1.8-3.6
   - libpam-modules-bin-1.1.8-3.6
   - libpam-runtime-1.1.8-3.6
   - libpam-systemd:amd64-232-25+deb9u1
-  - libpam0g:amd64-1.1.8-3.6
   - libpci3:amd64-1:3.5.2-1
   - libpcre3:amd64-2:8.39-3
   - libperl5.24:amd64-5.24.1-3+deb9u2
@@ -200,12 +200,12 @@ packages:
   - libpopt0:amd64-1.16-10+b2
   - libprocps6:amd64-2:3.3.12-3
   - libpsl5:amd64-0.17.0-3
-  - libpython-stdlib:amd64-2.7.13-2
   - libpython2.7-minimal:amd64-2.7.13-2+deb9u2
   - libpython2.7-stdlib:amd64-2.7.13-2+deb9u2
-  - libpython3-stdlib:amd64-3.5.3-1
   - libpython3.5-minimal:amd64-3.5.3-1
   - libpython3.5-stdlib:amd64-3.5.3-1
+  - libpython3-stdlib:amd64-3.5.3-1
+  - libpython-stdlib:amd64-2.7.13-2
   - libreadline7:amd64-7.0-3
   - librpcsecgss3:amd64-0.19-7+b2
   - librtmp1:amd64-2.4+20151223.gitfa8646d.1-1+b1
@@ -214,8 +214,8 @@ packages:
   - libsasl2-modules-db:amd64-2.1.27~101-g0780600+dfsg-3
   - libseccomp2:amd64-2.3.1-2.1
   - libselinux1:amd64-2.6-3+b3
-  - libsemanage-common-2.6-2
   - libsemanage1:amd64-2.6-2
+  - libsemanage-common-2.6-2
   - libsepol1:amd64-2.6-2
   - libslang2:amd64-2.3.1-5
   - libsmartcols1:amd64-2.29.2-1
@@ -239,8 +239,8 @@ packages:
   - libusb-0.1-4:amd64-2:0.1.12-30
   - libustr-1.0-1:amd64-1.0.4-6
   - libuuid1:amd64-2.29.2-1
-  - libverto-libev1:amd64-0.2.4-2.1
   - libverto1:amd64-0.2.4-2.1
+  - libverto-libev1:amd64-0.2.4-2.1
   - libwgdb0:amd64-0.7.3-2+b2
   - libwrap0:amd64-7.6.q-26
   - libx11-6:amd64-2:1.6.4-3
@@ -250,7 +250,7 @@ packages:
   - libxcb1:amd64-1.12-1
   - libxdmcp6:amd64-1:1.1.2-3
   - libxext6:amd64-2:1.3.3-1+b2
-  - libxml2:amd64-2.9.4+dfsg1-2.2+deb9u1
+  - libxml2:amd64-2.9.4+dfsg1-2.2+deb9u2
   - libxmuu1:amd64-2:1.1.2-2
   - libxtables12:amd64-1.6.0+snapshot20161117-6
   - linux-base-4.5
@@ -289,13 +289,11 @@ packages:
   - powermgmt-base-1.31+nmu1
   - procps-2:3.3.12-3
   - python-2.7.13-2
-  - python-apt-1.4.0~beta3
-  - python-apt-common-1.4.0~beta3
-  - python-minimal-2.7.13-2
-  - python-simplejson-3.10.0-1
   - python2.7-2.7.13-2+deb9u2
   - python2.7-minimal-2.7.13-2+deb9u2
   - python3-3.5.3-1
+  - python3.5-3.5.3-1
+  - python3.5-minimal-3.5.3-1
   - python3-apt-1.4.0~beta3
   - python3-chardet-2.3.0-2
   - python3-debian-0.1.30
@@ -309,8 +307,10 @@ packages:
   - python3-requests-2.12.4-1
   - python3-six-1.10.0-3
   - python3-urllib3-1.19.1-1
-  - python3.5-3.5.3-1
-  - python3.5-minimal-3.5.3-1
+  - python-apt-1.4.0~beta3
+  - python-apt-common-1.4.0~beta3
+  - python-minimal-2.7.13-2
+  - python-simplejson-3.10.0-1
   - readline-common-7.0-3
   - rename-0.20-4
   - reportbug-7.1.7
@@ -326,9 +326,9 @@ packages:
   - sysvinit-utils-2.88dsf-59.9
   - tar-1.29b-1.1
   - task-english-3.39
-  - task-ssh-server-3.39
   - tasksel-3.39
   - tasksel-data-3.39
+  - task-ssh-server-3.39
   - tcpd-7.6.q-26
   - telnet-0.17-41
   - traceroute-1:2.1.0-2

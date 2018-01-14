@@ -45,8 +45,8 @@ packages:
   - libbz2-1.0:amd64-1.0.6-7+b3
   - libc-bin-2.19-18+deb8u10
   - libc6:amd64-2.19-18+deb8u10
-  - libcap2:amd64-1:2.24-8
   - libcap2-bin-1:2.24-8
+  - libcap2:amd64-1:2.24-8
   - libcomerr2:amd64-1.42.12-2+b1
   - libcryptsetup4:amd64-2:1.6.6-5
   - libdb5.3:amd64-5.3.28-9+deb8u1
@@ -65,8 +65,8 @@ packages:
   - libmount1:amd64-2.25.2-6
   - libncurses5:amd64-5.9+20140913-1+deb8u2
   - libncursesw5:amd64-5.9+20140913-1+deb8u2
-  - libpam-modules:amd64-1.1.8-3.1+deb8u2+b1
   - libpam-modules-bin-1.1.8-3.1+deb8u2+b1
+  - libpam-modules:amd64-1.1.8-3.1+deb8u2+b1
   - libpam-runtime-1.1.8-3.1+deb8u2
   - libpam0g:amd64-1.1.8-3.1+deb8u2+b1
   - libpcre3:amd64-2:8.35-3.3+deb8u4

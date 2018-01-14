@@ -7,7 +7,7 @@ Run `ansible-galaxy install -r requirements.yml` to download all required roles.
 # Releasing
 When you want to create a release:
 - `vagrant up` to start virtual machines.
-- `ansible-playbook.yml` to start container and
+- `ansible-playbook.yml snapshot.yml` to start container and
 - Create containers
 - Bootstrap
 - Update
@@ -18,11 +18,10 @@ This basically "freezes" or "snapshots" the (package) state of an installation. 
 
 # Adding distributions
 When you want to create another "offering", these files are relevant:
-- playbook.yml to add the creation and deletion of the container.
+-  snapshot.yml to add the creation and deletion of the container.
 - inventory/hosts to note the name of the containers used.
-- playbook.yml in case a new package manager is used.
+- snapshot.yml in case a new package manager is used.
 - requirements.yml if you want to add functionality.
 
 TODO:
-- Docker does not run a kernel, nor grub. This means the snapshots created here can't be used on a virtual or physical machine.
-- The output files are ~nearly~ usable, the filter "| to_nice_yaml" does not start with triple dash, and the shell script does not add a new line.
+- Docker does not run a kernel, nor grub. This means the snapshots created here can't be used on a virtual or physical machine. Probably remove the while docker case.

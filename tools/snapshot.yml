@@ -30,7 +30,7 @@
   tasks:
     - name: register packages (yum)
       shell: >
-        rpm -qa --queryformat '%{NAME} %{VERSION}\n' | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 } END { print "..." }'
+        rpm -qa --queryformat '%{NAME} %{VERSION}\n' | sort | grep -v gpg-pubkey | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 } END { print "..." }'
       register: yumpackages
       when:
         - ansible_pkg_mgr == "yum"
@@ -39,7 +39,7 @@
 
     - name: register packages (apt)
       shell: >
-        dpkg-query -W | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 } END { print "..." }'
+        dpkg-query -W | sort | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 } END { print "..." }'
       register: aptpackages
       when:
         - ansible_pkg_mgr == "apt"
@@ -49,14 +49,14 @@
   handlers:
     - name: write yum packages to file
       copy:
-        content: "{{ yumpackages.stdout }}"
-        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version}}-{{ ansible_virtualization_type }}.yml"
+        content: "{{ yumpackages.stdout }}\n"
+        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}-{{ ansible_virtualization_type }}.yml"
       delegate_to: localhost
 
     - name: write apt packages to file
       copy:
-        content: "{{ aptpackages.stdout }}"
-        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version}}-{{ ansible_virtualization_type }}.yml"
+        content: "{{ aptpackages.stdout }}\n"
+        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}-{{ ansible_virtualization_type }}.yml"
       delegate_to: localhost
 
 - hosts: localhost

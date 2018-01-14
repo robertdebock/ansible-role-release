@@ -74,8 +74,8 @@ packages:
   - libnettle6:amd64-3.3-1+b2
   - libnpth0:amd64-1.3-1
   - libp11-kit0:amd64-0.23.3-2
-  - libpam-modules:amd64-1.1.8-3.6
   - libpam-modules-bin-1.1.8-3.6
+  - libpam-modules:amd64-1.1.8-3.6
   - libpam-runtime-1.1.8-3.6
   - libpam0g:amd64-1.1.8-3.6
   - libpcre3:amd64-2:8.39-3
@@ -87,8 +87,8 @@ packages:
   - libpython3.5-stdlib:amd64-3.5.3-1
   - libreadline7:amd64-7.0-3
   - libsasl2-2:amd64-2.1.27~101-g0780600+dfsg-3
-  - libsasl2-modules:amd64-2.1.27~101-g0780600+dfsg-3
   - libsasl2-modules-db:amd64-2.1.27~101-g0780600+dfsg-3
+  - libsasl2-modules:amd64-2.1.27~101-g0780600+dfsg-3
   - libselinux1:amd64-2.6-3+b3
   - libsemanage-common-2.6-2
   - libsemanage1:amd64-2.6-2
