@@ -2,7 +2,7 @@
 # tasks file for server
 
 - name: load packages
-  include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}-{{ ansible_virtualization_type }}.yml"
+  include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
 
 - name: install software (yum)
   yum:

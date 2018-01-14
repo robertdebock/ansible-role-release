@@ -1,26 +1,17 @@
-server
+release
 =========
 
-[![Build Status](https://travis-ci.org/robertdebock/ansible-role-server.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-server)
+[![Build Status](https://travis-ci.org/robertdebock/ansible-role-release.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-release)
 
-Install all required packages on a server.
+Install or update all required packages on a server.
 
 Requirements
 ------------
 
 - A Bootstrapped system (hint: robertdebock.bootstrap)
+- A way to update a system (hint: robertdebock.update)
 - Access to a repository containing packages, likely on the internet.
 - Ansible 2.2 or higher.
-
-Capture all packages after running the dependent Ansible roles (robertdebock.bootstrap):
-- CentOS:
-```
-rpm -qa --queryformat "    - %{NAME}-%{VERSION}-%{RELEASE}\n" | grep -v gpg-pubkey | sort
-```
-- Debian:
-```
-dpkg-query -W -f='    - ${Package}=${Version}\n'
-```
 
 Benefits of this approach:
 - A list of changed package is visible in code.
@@ -42,7 +33,7 @@ None known
 Dependencies
 ------------
 
-- robertdebock.bootstrap
+- robertdebock.update
 
 Example Playbook
 ----------------
@@ -55,19 +46,19 @@ Example Playbook
   become: yes
 
   roles:
-    - robertdebock.server
+    - robertdebock.release
 
   tasks:
     - name: install some extra software
 ```
 
 To install this role:
-- Install this role individually using `ansible-galaxy install robertdebock.server`
+- Install this role individually using `ansible-galaxy install robertdebock.release`
 - Use another role that depends on this one and run `ansible-galaxy install --role-file requirements.yml`:
 
 ```
 ---
-- src: robertdebock.server
+- src: robertdebock.release
 ```
 
 -------

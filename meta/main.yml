@@ -11,13 +11,17 @@ galaxy_info:
       version:
         - 6
         - 7
+    - name: debian
+      version:
+        - all
 
   galaxy_tags:
     - ansible
     - server
     - CentOS
+    - Debian
     - system
     - installer
 
 dependencies:
-  - robertdebock.bootstrap
+  - robertdebock.update

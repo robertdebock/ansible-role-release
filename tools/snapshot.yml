@@ -1,24 +1,4 @@
 ---
-- hosts: localhost
-  gather_facts: no
-
-  tasks:
-    - name: create containers
-      docker_container:
-        name: "{{ item.name }}"
-        state: started
-        image: "{{ item.image }}"
-        command: sleep infinity
-      with_items:
-        - name: reference-centos-6-cnt
-          image: centos:6
-        - name: reference-centos-7-cnt
-          image: centos:7
-        - name: reference-debian-8-cnt
-          image: debian:8
-        - name: reference-debian-9-cnt
-          image: debian:9
-
 - hosts: all:!localhost
   gather_facts: no
   become: yes
@@ -50,25 +30,11 @@
     - name: write yum packages to file
       copy:
         content: "{{ yumpackages.stdout }}\n"
-        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}-{{ ansible_virtualization_type }}.yml"
+        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
       delegate_to: localhost
 
     - name: write apt packages to file
       copy:
         content: "{{ aptpackages.stdout }}\n"
-        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}-{{ ansible_virtualization_type }}.yml"
+        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
       delegate_to: localhost
-
-- hosts: localhost
-  gather_facts: no
-
-  tasks:
-    - name: delete containers
-      docker_container:
-        name: "{{ item.name }}"
-        state: absent
-      with_items:
-        - name: reference-centos-6-cnt
-        - name: reference-centos-7-cnt
-        - name: reference-debian-8-cnt
-        - name: reference-debian-9-cnt
