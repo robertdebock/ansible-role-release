@@ -24,4 +24,4 @@ galaxy_info:
     - installer
 
 dependencies:
-  - robertdebock.update
+  - robertdebock.bootstrap
