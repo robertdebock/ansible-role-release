@@ -10,7 +10,7 @@
   tasks:
     - name: register packages (yum)
       shell: >
-        rpm -qa --queryformat '%{NAME} %{VERSION}\n' | sort | grep -v gpg-pubkey | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 } END { print "..." }'
+        rpm -qa --queryformat '%{NAME} %{VERSION}\n' | sort | grep -v gpg-pubkey | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 }'
       register: yumpackages
       when:
         - ansible_pkg_mgr == "yum"
@@ -19,7 +19,7 @@
 
     - name: register packages (apt)
       shell: >
-        dpkg-query -W | sort | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 } END { print "..." }'
+        dpkg-query -W | sort | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 }'
       register: aptpackages
       when:
         - ansible_pkg_mgr == "apt"
