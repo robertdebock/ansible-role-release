@@ -1,2 +1,16 @@
 ---
 # defaults file for release
+# How long to wait before sending a reboot.
+release_reboot_delay: 5
+
+# How many times should we try to connect.
+release_down_retries: 180
+
+# Maximum number of seconds to wait for a connection to happen before closing and retrying.
+release_down_connect_timeout: 1
+
+# Maximum number of seconds to wait for.
+release_down_timeout: 1
+
+# Number of seconds to sleep between checks.
+release_down_sleep: 1

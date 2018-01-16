@@ -1,0 +1,26 @@
+---
+# handlers file for release
+- name: reboot
+  shell: (sleep "{{ release_reboot_delay }}" && shutdown -r now "ansible-role-release" &)
+  async: 1
+  poll: 0
+  ignore_errors: yes
+  changed_when: no
+  when:
+    - ansible_virtualization_type != "docker"
+
+- name: wait for the machine to be down
+  wait_for_connection:
+    connect_timeout: "{{ release_down_connect_timeout }}"
+    sleep: "{{ release_down_sleep }}"
+    timeout: "{{ release_down_timeout }}"
+  register: connection
+  until: connection | failed
+  failed_when:
+    - connection | success
+  retries: "{{ release_down_retries }}"
+  when:
+    - ansible_virtualization_type != "docker"
+
+- name: wait for the machine to be up
+  wait_for_connection:

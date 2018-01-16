@@ -19,7 +19,7 @@
 
     - name: register packages (apt)
       shell: >
-        dpkg-query -W | sort | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 }'
+        dpkg-query -W | sort | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"="$2 }'
       register: aptpackages
       when:
         - ansible_pkg_mgr == "apt"

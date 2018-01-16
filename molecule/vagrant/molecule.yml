@@ -14,10 +14,10 @@ platforms:
     box: centos/6
   - name: release-centos-7
     box: centos/7
-  - name: release-debian-jessie64
+  - name: release-debian-8
     box: debian/jessie64
-  - name: release-debian-buster64
-    box: desc/buster64
+  - name: release-debian-9
+    box: debian/stretch64
 provisioner:
   name: ansible
 scenario:

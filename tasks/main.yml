@@ -1,21 +1,14 @@
 ---
 # tasks file for server
-
 - name: load packages
   include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
 
-- name: install software (yum)
-  yum:
-    name: "{{ item }}"
-  when:
-    - ansible_pkg_mgr == "yum"
-  with_items:
-    - "{{ packages }}"
-
-- name: install software (apt)
-  apt:
+- name: install software
+  package:
     name: "{{ item }}"
   with_items:
     - "{{ packages }}"
-  when:
-    - ansible_pkg_mgr == "apt"
+  notify:
+    - reboot
+    - wait for the machine to be down
+    - wait for the machine to be up
