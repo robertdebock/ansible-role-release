@@ -67,7 +67,7 @@
     - ansible_pkg_mgr == "pacman"
 
 - name: install software (package)
-  yum:
+  package:
     name: "{{ item }}"
   with_items:
     - "{{ packages }}"
@@ -78,3 +78,5 @@
   when:
     - ansible_pkg_mgr != "yum"
     - ansible_pkg_mgr != "apt"
+    - ansible_pkg_mgr != "zypper"
+    - ansible_pkg_mgr != "pacman"
