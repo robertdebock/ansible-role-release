@@ -73,7 +73,7 @@ packages:
   - gc-7.6.0
   - gdbm-1.14
   - GeoIP-1.6.11
-  - GeoIP-GeoLite-data-2017.10
+  - GeoIP-GeoLite-data-2018.01
   - gettext-0.19.8.1
   - gettext-libs-0.19.8.1
   - ghc-srpm-macros-1.4.2
@@ -108,8 +108,8 @@ packages:
   - info-6.4
   - initscripts-9.79
   - ipcalc-0.2.0
-  - iproute-4.13.0
-  - iproute-tc-4.13.0
+  - iproute-4.14.1
+  - iproute-tc-4.14.1
   - iptables-libs-1.6.1
   - iputils-20161105
   - jansson-2.10
@@ -119,8 +119,8 @@ packages:
   - kernel-core-4.13.9
   - kernel-core-4.14.13
   - keyutils-libs-1.5.10
-  - kmod-24
-  - kmod-libs-24
+  - kmod-25
+  - kmod-libs-25
   - kpartx-0.7.1
   - krb5-libs-1.15.2
   - less-487
@@ -172,7 +172,7 @@ packages:
   - libref_array-0.1.5
   - librepo-1.8.0
   - libreport-filesystem-2.9.3
-  - libseccomp-2.3.2
+  - libseccomp-2.3.3
   - libsecret-0.18.5
   - libselinux-2.7
   - libselinux-python-2.7
@@ -331,7 +331,7 @@ packages:
   - rpm-plugin-selinux-4.14.0
   - rpm-plugin-systemd-inhibit-4.14.0
   - rsync-3.1.2
-  - rust-srpm-macros-4
+  - rust-srpm-macros-5
   - sed-4.4
   - selinux-policy-3.13.1
   - selinux-policy-targeted-3.13.1

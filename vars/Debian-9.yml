@@ -8,7 +8,7 @@ packages:
   - base-passwd=3.5.43
   - bash=4.4-5
   - bash-completion=1:2.1-4.3
-  - bind9-host=1:9.10.3.dfsg.P4-12.3+deb9u3
+  - bind9-host=1:9.10.3.dfsg.P4-12.3+deb9u4
   - bsdmainutils=9.0.12+nmu1
   - bsdutils=1:2.29.2-1
   - busybox=1:1.22.0-19+b3
@@ -92,7 +92,7 @@ packages:
   - libattr1=1:2.4.47-2+b2
   - libaudit1=1:2.6.7-2
   - libaudit-common=1:2.6.7-2
-  - libbind9-140=1:9.10.3.dfsg.P4-12.3+deb9u3
+  - libbind9-140=1:9.10.3.dfsg.P4-12.3+deb9u4
   - libblkid1=2.29.2-1
   - libbsd0=0.8.3-1
   - libbz2-1.0=1.0.6-8.1
@@ -110,8 +110,8 @@ packages:
   - libdebconfclient0=0.227
   - libdevmapper1.02.1=2:1.02.137-2
   - libdiscover2=2.1.2-7.1
-  - libdns162=1:9.10.3.dfsg.P4-12.3+deb9u3
-  - libdns-export162=1:9.10.3.dfsg.P4-12.3+deb9u3
+  - libdns162=1:9.10.3.dfsg.P4-12.3+deb9u4
+  - libdns-export162=1:9.10.3.dfsg.P4-12.3+deb9u4
   - libedit2=3.1-20160903-3
   - libelf1=0.168-1
   - libestr0=0.1.10-2
@@ -145,11 +145,11 @@ packages:
   - libip4tc0=1.6.0+snapshot20161117-6
   - libip6tc0=1.6.0+snapshot20161117-6
   - libiptc0=1.6.0+snapshot20161117-6
-  - libirs141=1:9.10.3.dfsg.P4-12.3+deb9u3
-  - libisc160=1:9.10.3.dfsg.P4-12.3+deb9u3
-  - libisccc140=1:9.10.3.dfsg.P4-12.3+deb9u3
-  - libisccfg140=1:9.10.3.dfsg.P4-12.3+deb9u3
-  - libisc-export160=1:9.10.3.dfsg.P4-12.3+deb9u3
+  - libirs141=1:9.10.3.dfsg.P4-12.3+deb9u4
+  - libisc160=1:9.10.3.dfsg.P4-12.3+deb9u4
+  - libisccc140=1:9.10.3.dfsg.P4-12.3+deb9u4
+  - libisccfg140=1:9.10.3.dfsg.P4-12.3+deb9u4
+  - libisc-export160=1:9.10.3.dfsg.P4-12.3+deb9u4
   - libk5crypto3=1.15-1+deb9u1
   - libkadm5clnt-mit11=1.15-1+deb9u1
   - libkadm5srv-mit11=1.15-1+deb9u1
@@ -168,7 +168,7 @@ packages:
   - liblockfile-bin=1.14-1+b1
   - liblogging-stdlog0=1.0.5-2+b2
   - liblognorm5=2.0.1-1.1+b1
-  - liblwres141=1:9.10.3.dfsg.P4-12.3+deb9u3
+  - liblwres141=1:9.10.3.dfsg.P4-12.3+deb9u4
   - liblz4-1=0.0~r131-2+b1
   - liblzma5=5.2.2-1.2+b1
   - libmagic1=1:5.30-1+deb9u1
