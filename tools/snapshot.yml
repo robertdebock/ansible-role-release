@@ -8,14 +8,14 @@
     - role: robertdebock.update
 
   tasks:
-    - name: register packages (yum)
+    - name: register packages (yum or dnf)
       shell: >
         rpm -qa --queryformat '%{NAME} %{VERSION}\n' | sort | grep -v gpg-pubkey | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 }'
-      register: yumpackages
+      register: rpmpackages
       when:
-        - ansible_pkg_mgr == "yum"
+        - ansible_pkg_mgr == "yum" or ansible_pkg_mgr == "dnf"
       notify:
-        - write yum packages to file
+        - write rpm packages to file
 
     - name: register packages (apt)
       shell: >
@@ -26,10 +26,19 @@
       notify:
         - write apt packages to file
 
+    - name: register packages (zypper)
+      shell: >
+        rpm -qa --queryformat '%{NAME} %{VERSION}\n' | sort | grep -v gpg-pubkey | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 }'
+      register: zypperpackages
+      when:
+        - ansible_pkg_mgr == "zypper"
+      notify:
+        - write zypper packages to file
+
   handlers:
-    - name: write yum packages to file
+    - name: write rpm packages to file
       copy:
-        content: "{{ yumpackages.stdout }}\n"
+        content: "{{ rpmpackages.stdout }}\n"
         dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
       delegate_to: localhost
 
@@ -37,4 +46,10 @@
       copy:
         content: "{{ aptpackages.stdout }}\n"
         dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+      delegate_to: localhost
+
+    - name: write zypper packages to file
+      copy:
+        content: "{{ zypperpackages.stdout }}\n"
+        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
       delegate_to: localhost

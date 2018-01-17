@@ -3,8 +3,8 @@
 - name: load packages
   include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
 
-- name: install software
-  package:
+- name: install software (yum)
+  yum:
     name: "{{ item }}"
   with_items:
     - "{{ packages }}"
@@ -12,3 +12,29 @@
     - reboot
     - wait for the machine to be down
     - wait for the machine to be up
+  when:
+    - ansible_pkg_mgr == "yum"
+
+- name: install software (apt)
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - "{{ packages }}"
+  notify:
+    - reboot
+    - wait for the machine to be down
+    - wait for the machine to be up
+  when:
+    - ansible_pkg_mgr == "apt"
+
+- name: install software (package)
+  yum:
+    name: "{{ item }}"
+  with_items:
+    - "{{ packages }}"
+  notify:
+    - reboot
+    - wait for the machine to be down
+    - wait for the machine to be up
+  when:
+    - ansible_pkg_mgr != "yum" and ansible_pkg_mgr != "apt"
