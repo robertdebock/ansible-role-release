@@ -1,11 +1,12 @@
 Vagrant.configure("2") do |config|
 
-  config.vm.define("reference-debian-8") do |config|
-    config.vm.box = "debian/jessie64"
+
+  config.vm.define "reference-archlinux" do |config|
+    config.vm.box = "archlinux/archlinux"
   end
 
-  config.vm.define("reference-debian-9") do |config|
-    config.vm.box = "debian/stretch64"
+  config.vm.define "reference-alpine" do |config|
+    config.vm.box = "alpine/alpine64"
   end
 
   config.vm.define "reference-centos-6" do |config|
@@ -14,6 +15,14 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "reference-centos-7" do |config|
     config.vm.box = "centos/7"
+  end
+
+  config.vm.define("reference-debian-8") do |config|
+    config.vm.box = "debian/jessie64"
+  end
+
+  config.vm.define("reference-debian-9") do |config|
+    config.vm.box = "debian/stretch64"
   end
 
   config.vm.define "reference-fedora-26" do |config|

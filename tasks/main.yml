@@ -6,8 +6,8 @@
     - "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
     - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
 
-- name: install software (yum)
-  yum:
+- name: install software (apk)
+  apk:
     name: "{{ item }}"
   with_items:
     - "{{ packages }}"
@@ -16,7 +16,19 @@
     - wait for the machine to be down
     - wait for the machine to be up
   when:
-    - ansible_pkg_mgr == "yum"
+    - ansible_pkg_mgr == "apk"
+
+- name: install software (apt)
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - "{{ packages }}"
+  notify:
+    - reboot
+    - wait for the machine to be down
+    - wait for the machine to be up
+  when:
+    - ansible_pkg_mgr == "apt"
 
 - name: install software (dnf)
   dnf:
@@ -30,8 +42,8 @@
   when:
     - ansible_pkg_mgr == "dnf"
 
-- name: install software (apt)
-  apt:
+- name: install software (yum)
+  yum:
     name: "{{ item }}"
   with_items:
     - "{{ packages }}"
@@ -40,7 +52,7 @@
     - wait for the machine to be down
     - wait for the machine to be up
   when:
-    - ansible_pkg_mgr == "apt"
+    - ansible_pkg_mgr == "yum"
 
 - name: install software (zypper)
   zypper:
