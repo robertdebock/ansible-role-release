@@ -65,18 +65,3 @@
     - wait for the machine to be up
   when:
     - ansible_pkg_mgr == "pacman"
-
-- name: install software (package)
-  package:
-    name: "{{ item }}"
-  with_items:
-    - "{{ packages }}"
-  notify:
-    - reboot
-    - wait for the machine to be down
-    - wait for the machine to be up
-  when:
-    - ansible_pkg_mgr != "yum"
-    - ansible_pkg_mgr != "apt"
-    - ansible_pkg_mgr != "zypper"
-    - ansible_pkg_mgr != "pacman"
