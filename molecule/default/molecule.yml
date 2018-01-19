@@ -8,6 +8,12 @@ driver:
 lint:
   name: yamllint
 platforms:
+  - name: release-archlinux
+    image: base/archlinux
+  - name: release-alpine-3.6
+    image: alpine:3.6
+  - name: release-alpine-3.7
+    image: alpine:3.7
   - name: release-centos-6
     image: centos:6
     ulimits:
@@ -16,8 +22,27 @@ platforms:
     image: centos:7
   - name: release-debian-jessie
     image: debian:jessie
+  - name: release-debian-stretch
+    image: debian:stretch
   - name: release-debian-buster
     image: debian:buster
+  - name: release-fedora-26
+    image: fedora:26
+  - name: release-fedora-27
+    image: fedora:27
+  - name: release-opensuse-42.2
+    image: opensuse:42.2
+  - name: release-opensuse-42.3
+    image: opensuse:42.3
+    # 14.04 LTS
+  - name: release-ubuntu-trusty
+    image: ubuntu:trusty
+    # 16.04 LTS
+  - name: release-ubuntu-xenial
+    image: ubuntu:xenial
+    # 17.04
+  - name: release-ubuntu-artful
+    image: ubuntu:artful
 provisioner:
   name: ansible
   lint:
