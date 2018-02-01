@@ -29,12 +29,11 @@
     - name: register packages (pacman)
       shell: >
         pacman -Qe | sort | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 }'
-      register: aptpackages
+      register: packmanpackages
       when:
-        - ansible_pkg_mgr == "apt"
+        - ansible_pkg_mgr == "pacman"
       notify:
-        - write apt packages to file
-
+        - write pacman packages to file
 
     - name: register packages (yum or dnf)
       shell: >
@@ -58,6 +57,12 @@
     - name: write apk packages to file
       copy:
         content: "{{ apkpackages.stdout }}\n"
+        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+      delegate_to: localhost
+
+    - name: write apt packages to file
+      copy:
+        content: "{{ aptpackages.stdout }}\n"
         dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
       delegate_to: localhost
 
