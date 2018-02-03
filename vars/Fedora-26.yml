@@ -109,7 +109,7 @@ packages:
   - kbd-legacy-2.0.4
   - kbd-misc-2.0.4
   - kernel-core-4.11.8
-  - kernel-core-4.14.14
+  - kernel-core-4.14.16
   - keyutils-libs-1.5.10
   - kmod-25
   - kmod-libs-25

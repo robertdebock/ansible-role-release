@@ -8,6 +8,10 @@
     - role: robertdebock.update
 
   tasks:
+    - name: set timezone
+      timezone:
+        name: Europe/Amsterdam
+
     - name: register packages (apk)
       shell: >
         apk -v info | sort | awk 'BEGIN { print "---\npackages:" } { print "  - "$1 }'
