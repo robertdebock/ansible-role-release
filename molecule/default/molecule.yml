@@ -8,10 +8,6 @@ driver:
 lint:
   name: yamllint
 platforms:
-  # - name: release-centos-6
-  #   image: centos:6
-  #   ulimits:
-  #     - nofile:262144:262144
   - name: release-centos-7
     image: centos:7
   - name: release-debian-jessie
@@ -22,16 +18,9 @@ platforms:
     image: fedora:26
   - name: release-fedora-27
     image: fedora:27
-  # - name: release-opensuse-42.2
-  #   image: opensuse:42.2
-  # - name: release-opensuse-42.3
-  #   image: opensuse:42.3
     # 14.04 LTS
   - name: release-ubuntu-trusty
     image: ubuntu:trusty
-    # 16.04 LTS
-  # - name: release-ubuntu-xenial
-  #   image: ubuntu:xenial
     # 17.04
   - name: release-ubuntu-artful
     image: ubuntu:artful
