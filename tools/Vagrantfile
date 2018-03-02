@@ -4,28 +4,28 @@ Vagrant.configure("2") do |config|
     config.vm.box = "centos/7"
   end
 
-  config.vm.define("reference-debian-8") do |config|
-    config.vm.box = "debian/jessie64"
-  end
+#  config.vm.define("reference-debian-8") do |config|
+#    config.vm.box = "debian/jessie64"
+#  end
 
-  config.vm.define("reference-debian-9") do |config|
-    config.vm.box = "debian/stretch64"
-  end
+#  config.vm.define("reference-debian-9") do |config|
+#    config.vm.box = "debian/stretch64"
+#  end
 
-  config.vm.define "reference-fedora-26" do |config|
-    config.vm.box = "fedora/26-cloud-base"
-  end
+#  config.vm.define "reference-fedora-26" do |config|
+#    config.vm.box = "fedora/26-cloud-base"
+#  end
 
-  config.vm.define "reference-fedora-27" do |config|
-    config.vm.box = "fedora/27-cloud-base"
-  end
+#  config.vm.define "reference-fedora-27" do |config|
+#    config.vm.box = "fedora/27-cloud-base"
+#  end
 
-  config.vm.define "reference-ubuntu-trusty" do |config|
-    config.vm.box = "ubuntu/trusty64"
-  end
+#  config.vm.define "reference-ubuntu-trusty" do |config|
+#    config.vm.box = "ubuntu/trusty64"
+#  end
 
-  config.vm.define "reference-ubuntu-artful" do |config|
-    config.vm.box = "ubuntu/artful64"
-  end
+#  config.vm.define "reference-ubuntu-artful" do |config|
+#    config.vm.box = "ubuntu/artful64"
+#  end
 
 end

@@ -10,20 +10,20 @@ lint:
 platforms:
   - name: release-centos-7
     image: centos:7
-  - name: release-debian-jessie
-    image: debian:jessie
-  - name: release-debian-stretch
-    image: debian:stretch
-  - name: release-fedora-26
-    image: fedora:26
-  - name: release-fedora-27
-    image: fedora:27
-    # 14.04 LTS
-  - name: release-ubuntu-trusty
-    image: ubuntu:trusty
-    # 17.04
-  - name: release-ubuntu-artful
-    image: ubuntu:artful
+#  - name: release-debian-jessie
+#    image: debian:jessie
+#  - name: release-debian-stretch
+#    image: debian:stretch
+#  - name: release-fedora-26
+#    image: fedora:26
+#  - name: release-fedora-27
+#    image: fedora:27
+#    # 14.04 LTS
+#  - name: release-ubuntu-trusty
+#    image: ubuntu:trusty
+#    # 17.04
+#  - name: release-ubuntu-artful
+#    image: ubuntu:artful
 provisioner:
   name: ansible
   lint:

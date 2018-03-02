@@ -47,7 +47,7 @@ Legend:
 # Releasing
 When you want to create a release:
 - `vagrant up` to start virtual machines.
-- `ansible-playbook.yml snapshot.yml` to:
+- `ansible-playbook snapshot.yml` to:
 - Run all roles defined.
 - Create a package list
 
