@@ -40,5 +40,4 @@ galaxy_info:
     - system
     - installer
 
-dependencies:
-  - robertdebock.bootstrap
+dependencies: []

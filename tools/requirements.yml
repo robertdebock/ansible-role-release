@@ -1,2 +1,3 @@
 ---
-- src: robertdebock.update
+- robertdebock.bootstrap
+- robertdebock.update
