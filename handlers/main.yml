@@ -15,9 +15,9 @@
     sleep: "{{ release_down_sleep }}"
     timeout: "{{ release_down_timeout }}"
   register: connection
-  until: connection | failed
+  until: connection is failed
   failed_when:
-    - connection | success
+    - connection is success
   retries: "{{ release_down_retries }}"
   when:
     - ansible_virtualization_type != "docker"
