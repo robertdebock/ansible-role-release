@@ -10,24 +10,8 @@ driver:
 lint:
   name: yamllint
 platforms:
-#  - name: release-centos-6
-#    box: centos/6
   - name: release-centos-7
     box: centos/7
-#  - name: release-debian-jessie64
-#    box: debian/jessie64
-#  - name: release-debian-buster64
-#    box: desc/buster64
-#  - name: release-fedora-27-cloud-base
-#    box: fedora/27-cloud-base
-#  - name: release-fedora-28-cloud-base
-#    box: fedora/28-cloud-base
-#  - name: release-opensuse-openSUSE-42-2-x86-64
-#    box: opensuse/openSUSE-42.2-x86_64
-#  - name: release-ubuntu-trusty
-#    box: ubuntu/trusty64
-#  - name: release-ubuntu-artful
-#    box: ubuntu/artful64
 provisioner:
   name: ansible
   lint:
