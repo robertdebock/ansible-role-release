@@ -1,30 +1,24 @@
 ---
 packages:
-  - GeoIP-1.5.0
-  - NetworkManager-1.8.0
-  - NetworkManager-libnm-1.8.0
-  - NetworkManager-team-1.8.0
-  - NetworkManager-tui-1.8.0
-  - NetworkManager-wifi-1.8.0
   - acl-2.2.51
-  - audit-2.7.6
-  - audit-libs-2.7.6
+  - audit-2.8.1
+  - audit-libs-2.8.1
   - authconfig-6.2.8
   - basesystem-10.0
   - bash-4.2.46
   - bash-completion-2.1
   - bind-libs-lite-9.9.4
   - bind-license-9.9.4
-  - binutils-2.25.1
-  - biosdevname-0.7.2
+  - binutils-2.27
+  - biosdevname-0.7.3
   - btrfs-progs-4.9.1
   - bzip2-1.0.6
   - bzip2-libs-1.0.6
-  - ca-certificates-2017.2.14
+  - ca-certificates-2018.2.22
   - centos-logos-70.0.6
   - centos-release-7
   - chkconfig-1.7.4
-  - chrony-3.1
+  - chrony-3.2
   - coreutils-8.22
   - cpio-2.11
   - cracklib-2.9.0
@@ -35,16 +29,16 @@ packages:
   - cryptsetup-libs-1.7.4
   - curl-7.29.0
   - cyrus-sasl-lib-2.1.26
-  - dbus-1.6.12
+  - dbus-1.10.24
   - dbus-glib-0.100
-  - dbus-libs-1.6.12
+  - dbus-libs-1.10.24
   - dbus-python-1.1.1
   - deltarpm-3.6
-  - device-mapper-1.02.140
-  - device-mapper-event-1.02.140
-  - device-mapper-event-libs-1.02.140
-  - device-mapper-libs-1.02.140
-  - device-mapper-persistent-data-0.7.0
+  - device-mapper-1.02.146
+  - device-mapper-event-1.02.146
+  - device-mapper-event-libs-1.02.146
+  - device-mapper-libs-1.02.146
+  - device-mapper-persistent-data-0.7.3
   - dhclient-4.2.5
   - dhcp-common-4.2.5
   - dhcp-libs-4.2.5
@@ -54,9 +48,9 @@ packages:
   - e2fsprogs-1.42.9
   - e2fsprogs-libs-1.42.9
   - ebtables-2.0.10
-  - elfutils-default-yama-scope-0.168
-  - elfutils-libelf-0.168
-  - elfutils-libs-0.168
+  - elfutils-default-yama-scope-0.170
+  - elfutils-libelf-0.170
+  - elfutils-libs-0.170
   - ethtool-4.8
   - expat-2.1.0
   - file-5.11
@@ -70,9 +64,10 @@ packages:
   - freetype-2.4.11
   - gawk-4.0.2
   - gdbm-1.10
+  - GeoIP-1.5.0
   - gettext-0.19.8.1
   - gettext-libs-0.19.8.1
-  - glib2-2.50.3
+  - glib2-2.54.2
   - glibc-2.17
   - glibc-common-2.17
   - gmp-6.0.0
@@ -100,9 +95,9 @@ packages:
   - hypervkvpd-0
   - hypervvssd-0
   - info-5.1
-  - initscripts-9.49.39
-  - iproute-3.10.0
-  - iprutils-2.4.14.1
+  - initscripts-9.49.41
+  - iproute-4.11.0
+  - iprutils-2.4.15.1
   - ipset-6.29
   - ipset-libs-6.29
   - iptables-1.4.21
@@ -131,14 +126,14 @@ packages:
   - libblkid-2.23.2
   - libcap-2.22
   - libcap-ng-0.7.5
-  - libcollection-0.6.2
+  - libcollection-0.7.0
   - libcom_err-1.42.9
   - libcroco-0.6.11
   - libcurl-7.29.0
   - libdaemon-0.14
   - libdb-5.3.21
   - libdb-utils-5.3.21
-  - libdrm-2.4.74
+  - libdrm-2.4.83
   - libedit-3.0
   - libestr-0.1.9
   - libevent-2.0.21
@@ -149,7 +144,7 @@ packages:
   - libgomp-4.8.5
   - libgpg-error-1.12
   - libidn-1.28
-  - libini_config-1.3.0
+  - libini_config-1.3.1
   - libmnl-1.0.3
   - libmount-2.23.2
   - libndp-1.2
@@ -159,7 +154,7 @@ packages:
   - libnl3-3.2.28
   - libnl3-cli-3.2.28
   - libpath_utils-0.2.1
-  - libpciaccess-0.13.4
+  - libpciaccess-0.14
   - libpipeline-1.2.3
   - libpwquality-1.2.3
   - libref_array-0.1.5
@@ -175,7 +170,7 @@ packages:
   - libstdc++-4.8.5
   - libsysfs-2.1.0
   - libtasn1-4.10
-  - libteam-1.25
+  - libteam-1.27
   - libtirpc-0.2.4
   - libunistring-0.9.3
   - libuser-0.60
@@ -185,12 +180,13 @@ packages:
   - libverto-libevent-0.2.5
   - libxml2-2.9.1
   - libxml2-python-2.9.1
-  - linux-firmware-20170606
+  - linux-firmware-20180220
   - logrotate-3.8.6
   - lsscsi-0.27
   - lua-5.1.4
-  - lvm2-2.02.171
-  - lvm2-libs-2.02.171
+  - lvm2-2.02.177
+  - lvm2-libs-2.02.177
+  - lz4-1.7.5
   - lzo-2.06
   - make-3.82
   - man-db-2.6.3
@@ -200,17 +196,22 @@ packages:
   - ncurses-5.9
   - ncurses-base-5.9
   - ncurses-libs-5.9
+  - NetworkManager-1.10.2
+  - NetworkManager-libnm-1.10.2
+  - NetworkManager-team-1.10.2
+  - NetworkManager-tui-1.10.2
+  - NetworkManager-wifi-1.10.2
   - newt-0.52.15
   - newt-python-0.52.15
   - nfs-utils-1.3.0
-  - nspr-4.13.1
-  - nss-3.28.4
+  - nspr-4.19.0
+  - nss-3.36.0
   - nss-pem-1.0.3
-  - nss-softokn-3.28.3
-  - nss-softokn-freebl-3.28.3
-  - nss-sysinit-3.28.4
-  - nss-tools-3.28.4
-  - nss-util-3.28.4
+  - nss-softokn-3.36.0
+  - nss-softokn-freebl-3.36.0
+  - nss-sysinit-3.36.0
+  - nss-tools-3.36.0
+  - nss-util-3.36.0
   - numactl-libs-2.0.9
   - openldap-2.4.44
   - openssh-7.4p1
@@ -269,7 +270,7 @@ packages:
   - rpm-build-libs-4.11.3
   - rpm-libs-4.11.3
   - rpm-python-4.11.3
-  - rsync-3.0.9
+  - rsync-3.1.2
   - rsyslog-8.24.0
   - screen-4.1.0
   - sed-4.2.2
@@ -288,14 +289,14 @@ packages:
   - tar-1.26
   - tcp_wrappers-7.6
   - tcp_wrappers-libs-7.6
-  - teamd-1.25
-  - tuned-2.8.0
-  - tzdata-2018c
+  - teamd-1.27
+  - tuned-2.9.0
+  - tzdata-2018e
   - unzip-6.0
   - ustr-1.0.4
   - util-linux-2.23.2
   - vim-minimal-7.4.160
-  - virt-what-1.13
+  - virt-what-1.18
   - which-2.20
   - wpa_supplicant-2.6
   - xfsprogs-4.5.0

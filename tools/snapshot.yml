@@ -12,33 +12,6 @@
       timezone:
         name: Europe/Amsterdam
 
-    - name: register packages (apk)
-      shell: >
-        apk -v info | sort | awk 'BEGIN { print "---\npackages:" } { print "  - "$1 }'
-      register: apkpackages
-      when:
-        - ansible_pkg_mgr == "apk"
-      notify:
-        - write apk packages to file
-
-    - name: register packages (apt)
-      shell: >
-        grep -E '^(Package|Version): ' /var/lib/dpkg/status | sed 'N;s/\n/ /;s/Package: //g;s/ Version://' | sort | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"="$2 }'
-      register: aptpackages
-      when:
-        - ansible_pkg_mgr == "apt"
-      notify:
-        - write apt packages to file
-
-    - name: register packages (pacman)
-      shell: >
-        pacman -Qe | sort | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 }'
-      register: packmanpackages
-      when:
-        - ansible_pkg_mgr == "pacman"
-      notify:
-        - write pacman packages to file
-
     - name: register packages (yum or dnf)
       shell: >
         rpm -qa --queryformat '%{NAME} %{VERSION}\n' | sort | grep -v gpg-pubkey | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 }'
@@ -48,42 +21,9 @@
       notify:
         - write rpm packages to file
 
-    - name: register packages (zypper)
-      shell: >
-        rpm -qa --queryformat '%{NAME} %{VERSION}\n' | sort | grep -v gpg-pubkey | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 }'
-      register: zypperpackages
-      when:
-        - ansible_pkg_mgr == "zypper"
-      notify:
-        - write zypper packages to file
-
   handlers:
-    - name: write apk packages to file
-      copy:
-        content: "{{ apkpackages.stdout }}\n"
-        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-      delegate_to: localhost
-
-    - name: write apt packages to file
-      copy:
-        content: "{{ aptpackages.stdout }}\n"
-        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-      delegate_to: localhost
-
-    - name: write pacman packages to file
-      copy:
-        content: "{{ packmanpackages.stdout }}\n"
-        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-      delegate_to: localhost
-
     - name: write rpm packages to file
       copy:
         content: "{{ rpmpackages.stdout }}\n"
         dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-      delegate_to: localhost
-
-    - name: write zypper packages to file
-      copy:
-        content: "{{ zypperpackages.stdout }}\n"
-        dest: "../vars/{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
       delegate_to: localhost
