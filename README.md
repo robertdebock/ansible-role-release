@@ -40,7 +40,8 @@ None known
 Dependencies
 ------------
 
-- robertdebock.update
+- [robertdebock.bootstrap](https://travis-ci.org/robertdebock/ansible-role-bootstrap)
+- [robertdebock.update](https://travis-ci.org/robertdebock/ansible-role-update)
 
 Example Playbook
 ----------------
