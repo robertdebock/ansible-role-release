@@ -43,6 +43,16 @@ Dependencies
 - [robertdebock.bootstrap](https://travis-ci.org/robertdebock/ansible-role-bootstrap)
 - [robertdebock.update](https://travis-ci.org/robertdebock/ansible-role-update)
 
+Compatibility
+-------------
+
+This role has been tested against the following distributions and Ansible version:
+
+|distribution|ansible 2.4|ansible 2.5|ansible 2.6|
+|------------|-----------|-----------|-----------|
+|centos-7|yes|yes|yes|
+
+
 Example Playbook
 ----------------
 
