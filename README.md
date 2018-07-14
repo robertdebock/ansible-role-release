@@ -35,7 +35,11 @@ Drawbacks of both approaches:
 Role Variables
 --------------
 
-None known
+- release_reboot_delay: Seconds to wait before reboot.
+- release_down_retries: Number of retries.
+- release_down_connect_timeout: Timeout in seconds.
+- release_down_timeout: Timeout in seconds.
+- release_down_sleep: Seconds to sleep.
 
 Dependencies
 ------------
