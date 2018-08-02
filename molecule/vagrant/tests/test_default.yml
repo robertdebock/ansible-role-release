@@ -1,5 +1,0 @@
-# Molecule managed
----
-user:
-  root:
-    exists: true
