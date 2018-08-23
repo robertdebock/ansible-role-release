@@ -4,9 +4,9 @@ language: python
 services: docker
 
 env:
-  - version=">=2.4,<2.5" distro="centos-7"
-  - version=">=2.5,<2.6" distro="centos-7"
-  - version=">=2.6,<2.7" distro="centos-7"
+  - version=">=2.4,<2.5" distro="centos-latest"
+  - version=">=2.5,<2.6" distro="centos-latest"
+  - version=">=2.6,<2.7" distro="centos-latest"
 
 cache:
   - pip
