@@ -9,6 +9,7 @@
 - name: install software (apk)
   apk:
     name: "{{ item }}"
+    state: present
   with_items:
     - "{{ packages }}"
   notify:
@@ -21,6 +22,7 @@
 - name: install software (apt)
   apt:
     name: "{{ item }}"
+    state: present
   with_items:
     - "{{ packages }}"
   notify:
@@ -33,6 +35,7 @@
 - name: install software (dnf)
   dnf:
     name: "{{ item }}"
+    state: present
   with_items:
     - "{{ packages }}"
   notify:
@@ -45,6 +48,7 @@
 - name: install software (yum)
   yum:
     name: "{{ item }}"
+    state: present
   with_items:
     - "{{ packages }}"
   notify:
@@ -57,6 +61,7 @@
 - name: install software (zypper)
   zypper:
     name: "{{ item }}"
+    state: present
   with_items:
     - "{{ packages }}"
   notify:
@@ -69,6 +74,7 @@
 - name: install software (pacman)
   pacman:
     name: "{{ item }}"
+    state: present
   with_items:
     - "{{ packages }}"
   notify:
