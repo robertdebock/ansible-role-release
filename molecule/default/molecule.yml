@@ -10,6 +10,8 @@ lint:
 platforms:
   - name: release-centos-latest
     image: centos:latest
+  - name: release-debian-latest
+    image: debian:latest
 provisioner:
   name: ansible
   lint:
@@ -17,8 +19,9 @@ provisioner:
     options:
       x:
         - ANSIBLE0016
+
 scenario:
-  name: centos-latest
+  name: default
 verifier:
   name: goss
   lint:

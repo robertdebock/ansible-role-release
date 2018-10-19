@@ -14,7 +14,7 @@
 
     - name: register packages (yum or dnf)
       shell: >
-        rpm -qa --queryformat '%{NAME} %{VERSION}\n' | sort | grep -v gpg-pubkey | awk 'BEGIN { print "---\npackages:" } { print "  - "$1"-"$2 }'
+        rpm -qa --queryformat '%{NAME} %{VERSION}\n' | sort | grep -v gpg-pubkey | awk 'BEGIN { print "---\nrelease_packages:" } { print "  - "$1"-"$2 }'
       register: rpmpackages
       when:
         - ansible_pkg_mgr == "yum" or ansible_pkg_mgr == "dnf"

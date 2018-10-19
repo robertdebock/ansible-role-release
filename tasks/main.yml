@@ -1,85 +1,21 @@
 ---
 # tasks file for server
-- name: load packages
+- name: load release_packages
   include_vars: "{{ item }}"
   with_first_found:
     - "{{ ansible_distribution }}-{{ ansible_distribution_version }}.yml"
     - "{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
 
-- name: install software (apk)
-  apk:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - "{{ packages }}"
-  notify:
-    - reboot
-    - wait for the machine to be down
-    - wait for the machine to be up
-  when:
-    - ansible_pkg_mgr == "apk"
-
-- name: install software (apt)
-  apt:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - "{{ packages }}"
-  notify:
-    - reboot
-    - wait for the machine to be down
-    - wait for the machine to be up
-  when:
-    - ansible_pkg_mgr == "apt"
-
-- name: install software (dnf)
-  dnf:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - "{{ packages }}"
-  notify:
-    - reboot
-    - wait for the machine to be down
-    - wait for the machine to be up
-  when:
-    - ansible_pkg_mgr == "dnf"
-
 - name: install software (yum)
   yum:
-    name: "{{ item }}"
+    name: "{{ release_packages }}"
     state: present
-  with_items:
-    - "{{ packages }}"
-  notify:
-    - reboot
-    - wait for the machine to be down
-    - wait for the machine to be up
   when:
     - ansible_pkg_mgr == "yum"
+  register: install_software_yum
 
-- name: install software (zypper)
-  zypper:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - "{{ packages }}"
-  notify:
-    - reboot
-    - wait for the machine to be down
-    - wait for the machine to be up
+- name: reboot for release
+  include_role:
+    name: robertdebock.reboot
   when:
-    - ansible_pkg_mgr == "zypper"
-
-- name: install software (pacman)
-  pacman:
-    name: "{{ item }}"
-    state: present
-  with_items:
-    - "{{ packages }}"
-  notify:
-    - reboot
-    - wait for the machine to be down
-    - wait for the machine to be up
-  when:
-    - ansible_pkg_mgr == "pacman"
+    - install_software_yum.changed

@@ -1,5 +1,5 @@
 ---
-packages:
+release_packages:
   - acl-2.2.51
   - audit-2.8.1
   - audit-libs-2.8.1

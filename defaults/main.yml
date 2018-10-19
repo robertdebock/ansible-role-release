@@ -1,8 +1,5 @@
 ---
 # defaults file for release
-# How long to wait before sending a reboot.
-release_reboot_delay: 5
-
 # How many times should we try to connect.
 release_down_retries: 180
 
@@ -14,3 +11,6 @@ release_down_timeout: 1
 
 # Number of seconds to sleep between checks.
 release_down_sleep: 1
+
+# To update all packages installed by this roles, set `release_package_state` to `latest`.
+release_package_state: present
