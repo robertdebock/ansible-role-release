@@ -19,3 +19,5 @@
     name: robertdebock.reboot
   when:
     - install_software_yum.changed
+  tags:
+    - skip_ansible_lint
