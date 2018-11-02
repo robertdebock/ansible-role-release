@@ -5,8 +5,8 @@
   become: true
 
   roles:
-    - role: robertdebock.bootstrap
-    - role: ansible-role-release
+    - robertdebock.bootstrap
+    - ansible-role-release
 
   tasks:
     - name: test connection

@@ -3,7 +3,78 @@ release
 
 [![Build Status](https://travis-ci.org/robertdebock/ansible-role-release.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-release)
 
-Install or update all required packages on a server.
+This role installs a specific set of packages on a machine. A bit different as an update, because with this release role, you can "pin" versions of each package. That can be handy, but you may miss updates to packages not listed in this release.
+
+
+Example Playbook
+----------------
+
+This example is taken from `molecule/default/playbook.yml`:
+```
+---
+- name: Converge
+  hosts: all
+  gather_facts: false
+  become: true
+
+  roles:
+    - robertdebock.bootstrap
+    - robertdebock.release
+
+  tasks:
+    - name: test connection
+      ping:
+
+```
+
+Role Variables
+--------------
+
+These variables are set in `defaults/main.yml`:
+```
+---
+# defaults file for release
+
+# To update all packages installed by this roles, set `release_package_state` to `latest`.
+release_package_state: present
+
+```
+
+Requirements
+------------
+
+- Access to a repository containing packages, likely on the internet.
+- A recent version of Ansible. (Tests run on the last 3 release of Ansible.)
+
+The following roles can be installed to ensure all requirements are met, using `ansible-galaxy install -r requirements.yml`:
+
+---
+- robertdebock.bootstrap
+- robertdebock.reboot
+
+
+Context
+-------
+
+This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
+
+Here is an overview of related roles:
+![dependencies](https://raw.githubusercontent.com/robertdebock/drawings/artifacts/release.png "Dependency")
+
+
+Compatibility
+-------------
+
+This role has been tested against the following distributions and Ansible version:
+
+|distribution|ansible 2.4|ansible 2.5|ansible 2.6|ansible 2.7|ansible devel|
+|------------|-----------|-----------|-----------|-----------|-------------|
+|centos-latest|yes|yes|yes|yes|yes*|
+
+A single star means the build may fail, it's marked as an experimental build.
+
+Testing
+-------
 
 [Unit tests](https://travis-ci.org/robertdebock/ansible-role-release) are done on every commit and periodically.
 
@@ -14,89 +85,14 @@ To test this role locally please use [Molecule](https://github.com/metacloud/mol
 pip install molecule
 molecule test
 ```
-There are many scenarios available, please have a look in the `molecule/` directory.
-
-Context
---------
-This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
-
-Here is an overview of related roles:
-![dependencies](https://raw.githubusercontent.com/robertdebock/drawings/artifacts/release.png "Dependency")
-
-Requirements
-------------
-
-- A Bootstrapped system (hint: robertdebock.bootstrap)
-- A way to update a system (hint: robertdebock.update)
-- Access to a repository containing packages, likely on the internet.
-- Ansible 2.2 or higher.
-
-Benefits of this approach:
-- A list of changed package is visible in code.
-- This does not depend on Satellite. The repository can be a simple mirror.
-
-Drawbacks of this approach:
-- A "snapshot" of packages and versions has to be created.
-- Not listed packages are not managed/updated.
-
-Drawbacks of both approaches:
-- Changing package dependencies can result in orphaned packages.
-- (Not tested) It's possible to downgrade to another "release".
-
-Role Variables
---------------
-
-- release_reboot_delay: Seconds to wait before reboot.
-- release_down_retries: Number of retries.
-- release_down_connect_timeout: Timeout in seconds.
-- release_down_timeout: Timeout in seconds.
-- release_down_sleep: Seconds to sleep.
-
-Dependencies
-------------
-
-- [robertdebock.bootstrap](https://travis-ci.org/robertdebock/ansible-role-bootstrap)
-- [robertdebock.update](https://travis-ci.org/robertdebock/ansible-role-update)
-
-Compatibility
--------------
-
-This role has been tested against the following distributions and Ansible version:
-
-|distribution|ansible 2.4|ansible 2.5|ansible 2.6|
-|------------|-----------|-----------|-----------|
-|centos-7|yes|yes|yes|
+There are many specific scenarios available, please have a look in the `molecule/` directory.
 
 
-Example Playbook
-----------------
-
-```
----
-- name: server
-  hosts: all
-  gather_facts: no
-  become: yes
-
-  roles:
-    - robertdebock.release
-
-  tasks:
-    - name: install some extra software
-```
-
-To install this role:
-- Install this role individually using `ansible-galaxy install robertdebock.release`
-- Use another role that depends on this one and run `ansible-galaxy install --role-file requirements.yml`:
-
-```
----
-- src: robertdebock.release
-```
-
+License
 -------
 
-Apache License, Version 2.0
+Apache-2.0
+
 
 Author Information
 ------------------
