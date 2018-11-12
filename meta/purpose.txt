@@ -1,1 +1,0 @@
-This role installs a specific set of packages on a machine. A bit different as an update, because with this release role, you can "pin" versions of each package. That can be handy, but you may miss updates to packages not listed in this release.

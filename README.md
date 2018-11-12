@@ -3,8 +3,7 @@ release
 
 [![Build Status](https://travis-ci.org/robertdebock/ansible-role-release.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-release)
 
-This role installs a specific set of packages on a machine. A bit different as an update, because with this release role, you can "pin" versions of each package. That can be handy, but you may miss updates to packages not listed in this release.
-
+The purpose of this role is to install and configure redis on your system.
 
 Example Playbook
 ----------------

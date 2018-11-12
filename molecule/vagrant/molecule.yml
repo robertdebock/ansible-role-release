@@ -4,14 +4,14 @@ dependency:
   options:
     role-file: requirements.yml
 driver:
-  name: docker
+  name: vagrant
+  provider:
+    name: virtualbox
 lint:
   name: yamllint
 platforms:
-  - name: release-centos-latest
-    image: centos:latest
-  - name: release-debian-latest
-    image: debian:latest
+  - name: release-centos
+    box: centos/7
 provisioner:
   name: ansible
   lint:
@@ -20,7 +20,7 @@ provisioner:
     defaults:
       callback_plugins: /usr/lib/python2.7/site-packages/ara/plugins/callbacks
 scenario:
-  name: default
+  name: vagrant
 verifier:
   name: goss
   lint:
