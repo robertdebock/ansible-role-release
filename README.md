@@ -3,7 +3,7 @@ release
 
 [![Build Status](https://travis-ci.org/robertdebock/ansible-role-release.svg?branch=master)](https://travis-ci.org/robertdebock/ansible-role-release)
 
-The purpose of this role is to install and configure redis on your system.
+The purpose of this role is to release a fixed set of packages to machines.
 
 Example Playbook
 ----------------
