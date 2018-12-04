@@ -12,12 +12,14 @@
     state: present
   when:
     - ansible_pkg_mgr == "yum"
-  register: install_software_yum
+  register: release_install_software_yum
+  until: release_install_software_yum
+  retries: 3
 
 - name: reboot for release
   include_role:
     name: robertdebock.reboot
   when:
-    - install_software_yum.changed
+    - release_install_software_yum.changed
   tags:
     - skip_ansible_lint
