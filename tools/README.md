@@ -1,5 +1,5 @@
 # Tools
-Several tools to manage or use this role
+Tools to manage or use this role
 
 # Overview
 ```text
@@ -27,7 +27,7 @@ Several tools to manage or use this role
 
 Legend:
 - Single dash (-): Input or output, typically files or arifacts.
-- Double dahs (=): Processes/programs.
+- Double dash (=): Processes/programs.
 - ISO: an ISO to install a Linux distribution with.
 - KS: Kickstart file (or preseed for Ubuntu) to configure the Linux distribution with.
 - Packer: A Hashicorp application to make installable artifacts with.
