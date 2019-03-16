@@ -1,5 +1,2 @@
 ---
 # defaults file for release
-
-# To update all packages installed by this roles, set `release_package_state` to `latest`.
-release_package_state: present
