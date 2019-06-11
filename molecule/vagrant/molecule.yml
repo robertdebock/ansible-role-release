@@ -16,5 +16,9 @@ provisioner:
   name: ansible
   lint:
     name: ansible-lint
+  inventory:
+    host_vars:
+      release-fedora:
+        ansible_python_interpreter: /usr/bin/python3
 scenario:
   name: vagrant
