@@ -13,7 +13,7 @@
   when:
     - ansible_pkg_mgr == "yum"
   register: release_install_software_yum
-  until: release_install_software_yum
+  until: release_install_software_yum is succeeded
   retries: 3
 
 - name: reboot for release
