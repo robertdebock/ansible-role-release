@@ -10,9 +10,6 @@ lint:
 platforms:
   - name: release-centos-latest
     image: centos:latest
-  - name: release-debian-latest
-    image: debian:latest
-provisioner:
   name: ansible
   lint:
     name: ansible-lint
