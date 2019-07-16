@@ -10,7 +10,12 @@ lint:
 platforms:
   - name: release-centos-latest
     image: centos:latest
+    pre_build_image: yes
+provisioner:
   name: ansible
+  playbooks:
+    prepare: ../resources/prepare.yml
+    converge: ../resources/playbook.yml
   lint:
     name: ansible-lint
   inventory:
