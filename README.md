@@ -63,6 +63,14 @@ The following roles can be installed to ensure all requirements are met, using `
 
 ```
 
+This role uses the following modules:
+```yaml
+---
+- include_role
+- include_vars
+- yum
+```
+
 Context
 -------
 
@@ -82,6 +90,9 @@ This role has been tested against the following distributions and Ansible versio
 |centos-latest|yes|yes|yes*|
 
 A single star means the build may fail, it's marked as an experimental build.
+
+
+
 
 Testing
 -------
