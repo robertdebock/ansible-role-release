@@ -8,6 +8,9 @@ driver:
 lint:
   name: yamllint
 platforms:
+  - name: release-centos-7
+    image: centos:7
+    pre_build_image: yes
   - name: release-centos-latest
     image: centos:latest
     pre_build_image: yes
@@ -17,10 +20,8 @@ provisioner:
     prepare: ../resources/prepare.yml
     converge: ../resources/playbook.yml
   inventory:
-    host_vars:
-      release-fedora-latest:
-        ansible_python_interpreter: /usr/bin/python3
-      release-fedora-rawhide:
+    group_vars:
+      all:
         ansible_python_interpreter: /usr/bin/python3
 scenario:
   name: default
