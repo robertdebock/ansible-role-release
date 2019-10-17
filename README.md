@@ -86,14 +86,19 @@ Here is an overview of related roles:
 Compatibility
 -------------
 
-This role has been tested against the following distributions and Ansible version:
+This role has been tested on these [container images](https://hub.docker.com/):
 
-|distribution|ansible 2.7|ansible 2.8|ansible devel|
-|------------|-----------|-----------|-------------|
-|centos-7|yes|yes|yes*|
-|centos-latest|no|no|no*|
+|container|allow_failures|
+|---------|--------------|
+|robertdebock/docker-centos-systemd:7|no|
 
-A single star means the build may fail, it's marked as an experimental build.
+This role has been tested on these Ansible versions:
+
+- ansible~=2.7
+- ansible~=2.8
+- git+https://github.com/ansible/ansible.git@devel
+
+The indicator '~=' means [compatible with](https://www.python.org/dev/peps/pep-0440/#compatible-release). For example 'ansible~=2.8' would pick the latest ansible-2.8, for example ansible-2.8.5.
 
 Exceptions
 ----------

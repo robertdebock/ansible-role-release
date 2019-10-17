@@ -3,3 +3,4 @@ molecule/*/.molecule
 tools/roles/*
 tools/.vagrant
 *.swp
+.tox
