@@ -6,8 +6,8 @@ release
 
 The purpose of this role is to release a fixed set of packages to machines.
 
-<img src="https://img.shields.io/ansible/role/d/"/>
-<img src="https://img.shields.io/ansible/quality/"/>
+<img src="https://img.shields.io/ansible/role/d/23221"/>
+<img src="https://img.shields.io/ansible/quality/23221"/>
 
 Example Playbook
 ----------------
