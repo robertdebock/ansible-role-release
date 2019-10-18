@@ -34,10 +34,6 @@ The machine you are running this on, may need to be prepared.
 
   roles:
     - robertdebock.bootstrap
-
-  tasks:
-    - name: test connection
-      ping:
 ```
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
@@ -90,7 +86,7 @@ This role has been tested on these [container images](https://hub.docker.com/):
 
 |container|allow_failures|
 |---------|--------------|
-|robertdebock/docker-centos-systemd:7|no|
+|docker-centos-systemd|no|
 
 This role has been tested on these Ansible versions:
 
