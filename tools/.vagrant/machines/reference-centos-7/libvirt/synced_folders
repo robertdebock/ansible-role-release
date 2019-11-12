@@ -1,0 +1,1 @@
+{"rsync":{"/vagrant":{"type":"rsync","guestpath":"/vagrant","hostpath":"/home/robertdb/Documents/github.com/robertdebock/ansible-role-release/tools","disabled":false,"__vagrantfile":true,"owner":"vagrant","group":"vagrant"}}}
