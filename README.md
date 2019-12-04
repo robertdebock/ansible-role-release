@@ -94,7 +94,6 @@ Some variarations of the build matrix do not work. These are the variations and 
 | CentOS 8 | Can't build a CentOS 8 box using vagrant, not image released. |
 
 
-
 Testing
 -------
 
