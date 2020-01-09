@@ -16,9 +16,6 @@ env:
   matrix:
     - image="centos" tag="7"
 
-matrix:
-  allow_failures:
-
 cache:
   - pip
 
