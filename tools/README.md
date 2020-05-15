@@ -1,7 +1,9 @@
 # Tools
-Tools to manage or use this role
+
+Tools to manage or use this role.
 
 # Overview
+
 ```text
 +-----+   +----+    +----------------+
 | ISO | + | KS |    | Ansible roles: |
@@ -39,12 +41,14 @@ Legend:
 - Release: A list of packages found on "instance".
 - LNXS: Linux boxes where packages are matched to "Release".
 
-# Defining a release
+## Defining a release
+
 1. List all roles and tasks that define your release in snapshot.yml.
 2. Add all required roles to requirements.yml.
 3. Run `ansible-galaxy install -r requirements.yml` to download all required roles.
 
-# Releasing
+## Releasing
+
 When you want to create a release:
 - `vagrant up` to start virtual machines.
 - `ansible-playbook snapshot.yml` to:
@@ -53,7 +57,14 @@ When you want to create a release:
 
 This basically "freezes" or "snapshots" the (package) state of an installation. This snapshot (stored in i.e. "CentOS-7.yml") is pasted into the role variables.
 
-# Adding distributions
+## Adding distributions
+
 When you want to create another "offering", these files are relevant:
 - Vagrantfile to add the another distribution.
 - snapshot.yml in case a new package manager is used.
+
+## Cleaning up
+
+```bash
+vagrant destroy -f
+```
