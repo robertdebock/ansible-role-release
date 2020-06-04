@@ -2,9 +2,9 @@
 
 The purpose of this role is to release a fixed set of packages to machines.
 
-|Travis|GitHub|Quality|Downloads|
-|------|------|-------|---------|
-|[![travis](https://travis-ci.com/robertdebock/ansible-role-release.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-release)|[![github](https://github.com/robertdebock/ansible-role-release/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-release/actions)|[![quality](https://img.shields.io/ansible/quality/23221)](https://galaxy.ansible.com/robertdebock/release)|[![downloads](https://img.shields.io/ansible/role/d/23221)](https://galaxy.ansible.com/robertdebock/release)|
+|Travis|GitHub|Quality|Downloads|Version|
+|------|------|-------|---------|-------|
+|[![travis](https://travis-ci.com/robertdebock/ansible-role-release.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-release)|[![github](https://github.com/robertdebock/ansible-role-release/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-release/actions)|[![quality](https://img.shields.io/ansible/quality/23221)](https://galaxy.ansible.com/robertdebock/release)|[![downloads](https://img.shields.io/ansible/role/d/23221)](https://galaxy.ansible.com/robertdebock/release)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-release.svg)](https://github.com/robertdebock/ansible-role-release/releases/)|
 
 ## [Example Playbook](#example-playbook)
 
