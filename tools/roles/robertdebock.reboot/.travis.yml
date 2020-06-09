@@ -1,88 +1,45 @@
 ---
-sudo: required
+#
+# Ansible managed
+#
 language: python
-services: docker
+
+python:
+  - "3.8"
+
+services:
+  - docker
 
 env:
-  - version=">=2.7,<2.8" distro="alpine-latest"
-  - version="" distro="alpine-latest"
-  - version="devel" distro="alpine-latest"
-  - version=">=2.7,<2.8" distro="alpine-edge"
-  - version="" distro="alpine-edge"
-  - version="devel" distro="alpine-edge"
-  - version=">=2.7,<2.8" distro="archlinux" expectation="fail"
-  - version="" distro="archlinux"
-  - version="devel" distro="archlinux"
-  - version=">=2.7,<2.8" distro="centos-6"
-  - version="" distro="centos-6"
-  - version="devel" distro="centos-6"
-  - version=">=2.7,<2.8" distro="centos-latest"
-  - version="" distro="centos-latest"
-  - version="devel" distro="centos-latest"
-  - version=">=2.7,<2.8" distro="debian-stable"
-  - version="" distro="debian-stable"
-  - version="devel" distro="debian-stable"
-  - version=">=2.7,<2.8" distro="debian-unstable"
-  - version="" distro="debian-unstable"
-  - version="devel" distro="debian-unstable"
-  - version=">=2.7,<2.8" distro="fedora-latest"
-  - version="" distro="fedora-latest"
-  - version="devel" distro="fedora-latest"
-  - version=">=2.7,<2.8" distro="fedora-rawhide"
-  - version="" distro="fedora-rawhide"
-  - version="devel" distro="fedora-rawhide"
-  - version=">=2.7,<2.8" distro="opensuse-leap"
-  - version="" distro="opensuse-leap"
-  - version="devel" distro="opensuse-leap"
-  - version=">=2.7,<2.8" distro="ubuntu-rolling"
-  - version="" distro="ubuntu-rolling"
-  - version="devel" distro="ubuntu-rolling"
-  - version=">=2.7,<2.8" distro="ubuntu-latest"
-  - version="" distro="ubuntu-latest"
-  - version="devel" distro="ubuntu-latest"
-  - version=">=2.7,<2.8" distro="ubuntu-devel"
-  - version="" distro="ubuntu-devel"
-  - version="devel" distro="ubuntu-devel"
-
-matrix:
-  allow_failures:
-    - env: version=">=2.7,<2.8" distro="alpine-edge"
-    - env: version="" distro="alpine-edge"
-    - env: version="devel" distro="alpine-edge"
-    - env: version="devel" distro="alpine-latest"
-    - env: version="devel" distro="archlinux"
-    - env: version="devel" distro="centos-6"
-    - env: version="devel" distro="centos-latest"
-    - env: version="devel" distro="debian-stable"
-    - env: version=">=2.7,<2.8" distro="debian-unstable"
-    - env: version="" distro="debian-unstable"
-    - env: version="devel" distro="debian-unstable"
-    - env: version="devel" distro="fedora-latest"
-    - env: version=">=2.7,<2.8" distro="fedora-rawhide"
-    - env: version="" distro="fedora-rawhide"
-    - env: version="devel" distro="fedora-rawhide"
-    - env: version="devel" distro="opensuse-leap"
-    - env: version="devel" distro="ubuntu-rolling"
-    - env: version=">=2.7,<2.8" distro="ubuntu-devel"
-    - env: version="" distro="ubuntu-devel"
-    - env: version="devel" distro="ubuntu-devel"
-    - env: version="devel" distro="ubuntu-latest"
+  global:
+    namespace="robertdebock"
+  matrix:
+    - image="alpine" tag="latest"
+    - image="alpine" tag="edge"
+    - image="amazonlinux" tag="1"
+    - image="centos" tag="7"
+    - image="centos" tag="latest"
+    - image="debian" tag="latest"
+    - image="debian" tag="bullseye"
+    - image="fedora" tag="31"
+    - image="fedora" tag="latest"
+    - image="opensuse" tag="latest"
+    - image="ubuntu" tag="latest"
+    - image="ubuntu" tag="bionic"
+    - image="ubuntu" tag="xenial"
 
 cache:
   - pip
 
 install:
   - pip install --upgrade pip
-  - if [ "${version}" != "devel" ] ; then pip install ansible"${version}" ; fi
-  - if [ "${version}" = "devel" ] ; then pip install git+https://github.com/ansible/ansible.git@devel ; fi
-  - pip install molecule
-  - pip install docker
+  - pip install tox
 
 script:
-  - if [ "${expectation}" = "fail" ] ; then ! molecule test --scenario-name "${distro}" ; else molecule test --scenario-name "${distro}" ; fi
+  - tox --parallel all
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
   slack:
-    secure: "KeXA8wXxYX41jjXJAMEU3dBFf0jf6T/OuY62Zt6fCxmse+R4nC7P6TZGx7LKjaVCXKdRz3+giJz7Ef/7q23yTSFIoasiB0rzWiAg0S0E5o8ZFdJ0HdQQZknA7j21GcvK9Kj/zgxXUqFu6hhc+vgKRnPAMOjpyaoo74PwG4kHARFLAxb7fKdCxhkfBWvtdkgAUWzESWNeUHNsknFlbEP7PTk1akfsOaC3xUYjfA7kmZMH6w0eM+/FuTaoYdJ8EM3OcH+3j2q0IXuXVrJ0B1IyGvpJ1qVvDu9YSvkxbD6Qd9BCVRDBkCcTxsBpZX+Ks5DhaTOO71zsk1nZtBIFPAanXARygoyuMrAS4exfSrWT2TTxu0D01J9JZUlGmI/Uf7R9Kf7LAT1KfvZR/7VAK3X53i3pZHQqp8EOPr+FGpB9MPn62jfWF7gWYR8AfP4M1gaP7JYVxZqmSKE0LgqQNY/SmPcs37TU8jL6h1ojN0PPy8tRhGUhY3/tQq/19aF62WDTzH1j/OgcI5GrAZ2bR8EOQGvSfJX2uWnFhBQsISxaYo4Eiocw5z/QGU/JFBXOgipAGeS2PjiR3PYa3SkeftEOHnbp7rzakKd4zDCM/EGiIG4rPnFSwvVPBnnm64ut+PqpX8JI5uxdoJ8bjVIM/47hGNUnVFIG/ZQUXzI5vySqwyY="
+    secure: jkW7fKUH19VtOUeF9Olmh2+864G8JBAkibwWYaAQiFnrVUdZusnskZ53eYox35ckr6ikgTEiaGsVr8Hr+oYnMQ9uwaX9SCe756xCMwncZ2tOhIfcr99roT7P/ku20E5DTybn3KtCbO4PGfydYW7yqV2GihgaTcF9DLPvIldFAuyatoxYpcQL5C89CvXHCqdYY/gsWlmmxVBNB7b+yT2lQPgpbDz09Bfx1H8bOkiLs0TSmSC+imfcEEWcdxwlMRtPiYaWTlB40uRcHjAu3g5bAiEhpwG132uNX36AJNGgK/TZIFRHpaKKTlmeSvogvvKhHpXmT+t9GP9MygCaYI2iefJiUHeSRYtb7Itsxp5XBH6KqPfIOAQ96HCWmHTQHU1IFpKC5H9YxSnVUzWK8WhUXoIiczjoqBWSPrifY9QXkLwpganjqHQ9PJZnEpS/pBNyDFTFepIjFa2f3z/TVODsERzlbzPwFlSXZX3sgE3nagG5VST8+FjjFsF3CPUqgds5lrMd0CnfdxabZoP17983Frc8rkPo9WcrylVKnkdnpAVunRYIeQHdlspswjVefVaWaK17+3JaouG8o1eK65TBvbY/sZxfzWU6ZGPDu39LKOZgI6fiAq2UHuLRep3//diCjHDHrQNLmJRs7uDn0UqBuFbAWCH+c6PngKwxZ53G6Vg=
   email: false

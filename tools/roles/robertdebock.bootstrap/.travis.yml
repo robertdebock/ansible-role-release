@@ -1,104 +1,46 @@
 ---
-sudo: required
+#
+# Ansible managed
+#
 language: python
-services: docker
+
+python:
+  - "3.8"
+
+services:
+  - docker
 
 env:
-  - version=">=2.7,<2.8" distro="alpine-latest"
-  - version="" distro="alpine-latest"
-  - version="devel" distro="alpine-latest"
-  - version=">=2.7,<2.8" distro="alpine-edge"
-  - version="" distro="alpine-edge"
-  - version="devel" distro="alpine-edge"
-  - version=">=2.7,<2.8" distro="archlinux"
-  - version="" distro="archlinux"
-  - version="devel" distro="archlinux"
-  - version=">=2.7,<2.8" distro="centos-6"
-  - version="" distro="centos-6"
-  - version="devel" distro="centos-6"
-  - version=">=2.7,<2.8" distro="centos-latest"
-  - version="" distro="centos-latest"
-  - version="devel" distro="centos-latest"
-  - version=">=2.7,<2.8" distro="debian-stable"
-  - version="" distro="debian-stable"
-  - version="devel" distro="debian-stable"
-  - version=">=2.7,<2.8" distro="debian-unstable"
-  - version="" distro="debian-unstable"
-  - version="devel" distro="debian-unstable"
-  - version=">=2.7,<2.8" distro="fedora-latest"
-  - version="" distro="fedora-latest"
-  - version="devel" distro="fedora-latest"
-  - version=">=2.7,<2.8" distro="fedora-rawhide"
-  - version="" distro="fedora-rawhide"
-  - version="devel" distro="fedora-rawhide"
-  - version=">=2.7,<2.8" distro="kali"
-  - version="" distro="kali"
-  - version="devel" distro="kali"
-  - version=">=2.7,<2.8" distro="opensuse-leap"
-  - version="" distro="opensuse-leap"
-  - version="devel" distro="opensuse-leap"
-  # - version=">=2.7,<2.8" distro="redhat-7"
-  # - version="" distro="redhat-7"
-  # - version="devel" distro="redhat-7"
-  # - version=">=2.7,<2.8" distro="redhat-latest"
-  # - version="" distro="redhat-latest"
-  # - version="devel" distro="redhat-latest"
-  - version=">=2.7,<2.8" distro="ubuntu-rolling"
-  - version="" distro="ubuntu-rolling"
-  - version="devel" distro="ubuntu-rolling"
-  - version=">=2.7,<2.8" distro="ubuntu-latest"
-  - version="" distro="ubuntu-latest"
-  - version="devel" distro="ubuntu-latest"
-  - version=">=2.7,<2.8" distro="ubuntu-devel"
-  - version="" distro="ubuntu-devel"
-  - version="devel" distro="ubuntu-devel"
-
-matrix:
-  allow_failures:
-    - env: version=">=2.7,<2.8" distro="alpine-edge"
-    - env: version="" distro="alpine-edge"
-    - env: version="devel" distro="alpine-edge"
-    - env: version="devel" distro="alpine-latest"
-    - env: version="devel" distro="archlinux"
-    - env: version="devel" distro="centos-6"
-    - env: version="devel" distro="centos-latest"
-    - env: version="devel" distro="debian-stable"
-    - env: version=">=2.7,<2.8" distro="debian-unstable"
-    - env: version="" distro="debian-unstable"
-    - env: version="devel" distro="debian-unstable"
-    - env: version="devel" distro="fedora-latest"
-    - env: version=">=2.7,<2.8" distro="fedora-rawhide"
-    - env: version="" distro="fedora-rawhide"
-    - env: version="devel" distro="fedora-rawhide"
-    - env: version=">=2.7,<2.8" distro="gentoo"
-    - env: version="" distro="gentoo"
-    - env: version="devel" distro="gentoo"
-    - env: version="devel" distro="gentoo"
-    - env: version="devel" distro="kali"
-    - env: version="devel" distro="opensuse-leap"
-    # - version="devel" distro="redhat-7"
-    # - version="devel" distro="redhat-latest"
-    - env: version="devel" distro="ubuntu-rolling"
-    - env: version=">=2.7,<2.8" distro="ubuntu-devel"
-    - env: version="" distro="ubuntu-devel"
-    - env: version="devel" distro="ubuntu-devel"
-    - env: version="devel" distro="ubuntu-latest"
+  global:
+    namespace="robertdebock"
+  matrix:
+    - image="alpine" tag="latest"
+    - image="alpine" tag="edge"
+    - image="amazonlinux" tag="1"
+    - image="centos" tag="7"
+    - image="centos" tag="latest"
+    - image="debian" tag="latest"
+    - image="debian" tag="bullseye"
+    - image="fedora" tag="31"
+    - image="fedora" tag="latest"
+    - image="fedora" tag="rawhide"
+    - image="opensuse" tag="latest"
+    - image="ubuntu" tag="latest"
+    - image="ubuntu" tag="bionic"
+    - image="ubuntu" tag="xenial"
 
 cache:
   - pip
 
 install:
   - pip install --upgrade pip
-  - if [ "${version}" != "devel" ] ; then pip install ansible"${version}" ; fi
-  - if [ "${version}" = "devel" ] ; then pip install git+https://github.com/ansible/ansible.git@devel ; fi
-  - pip install molecule
-  - pip install docker
+  - pip install tox
 
 script:
-  - if [ "${expectation}" = "fail" ] ; then ! molecule test --scenario-name "${distro}" ; else molecule test --scenario-name "${distro}" ; fi
+  - tox --parallel all
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
   slack:
-    secure: "aulwiTA7Pd7ckRc4A99/ldtgA3ke8+xC2LOTNA0REpgkUOp19IDYZvwZBGWoBTR4dGsh4P7/Z3V/9vpi7d/b8zDDF4pF+xayo7xSFtqJviawJuRIC7OTCzAKQrTvQccNA1sLPWWH49hWjjQCwVd7VnhhXZOFFJwtx7KT7S+xABInFQIRyuEEJocDrTzlF8xG63P3iFkv3YE90QSsi7gxAB6dnSiOOESwAnnhWEuvAEsLsEkHCANEoA90O477/jqH6eCBGGyA4ItO7dRwdhn8iSEbqakQ6WWD5bMUjnydQ/5CsyolJeV6ejr1z3CaPWMDA1nM+gCBuIPlkTV2E+uWWzYIGEcUt/oXY/P8d4AzfSbIECE0VQptOBVnxvDTY++39MPMDVtWW9j82ZyAylswQrx7eNqnhLMOF0MhTAJxiOeLAnPJe179j47dVDJRGWVzlBSqg0XIk8tVsVNrF7+hkkxYkP8pe3+yQYIW03j+JZyPR9uzkJnNhMSnoTC3ey7wd9aJD+9wgEeXkmvtIPCd6QIR35irRSKVHTyU5yArHzQDRCK5IwRqkfWG3fH1s92ApCzDn6AzbYCpdgf8f1diFHyNSmmO0eePRvo89skoRnUv3LhUre8HJbx2946AamrIeYYKi77uTcrLG9AekP/oiT31y6U/GcWXJnlaSyKhXFU="
+    secure: COa91NUxAmjU77gUyJ7goURq1RnAaXjNMbraEAuf9NiC4tbe95Qjrk4eZ1TdeXAT/vS5UjURdIE6mrTaZBrKJDOuud0IMa5FCA67+w3/KhHxXSCX7QEvsF4kbv8aPLFhoVyYZzV+tILqhKBswkeGLTvnZxAM2Zlh47URt/riZqT/+HmF9hNjR/ln2Jd75dvnjQpKfuSozhO3T8EgcvU+cKskSWC6hAt3WYnjdRQOyYdAL1X1+DLwYYHQO4vIIGO9fS58Dd3vUmc+IM9/wR2qTR/ED0b0xCjdwnvEHe1+EbjfU5lSsLbGYYZtSibTxf/R4QcXP1ndcRjg/IhWhpJlG0U4NbUuMx7Oqptz3I7FXFh7x88B7reAEz8NK4eVejD5cW9c6osFEry428vvdt/Irht4PV8P8lYL4faR0D8tQWUv4Q7rY0SWSWBsMMB9mxXW0wlDdSq5QKTapaDTZULuFjNgl5ePpM6OhKFdvVtlCuMdfZKTGocWGHOQWIDAztopK5wUFEjatcRRs7Di9+2I+7Uj3rVeAN3Mo3Uv1cSPTNl7sJHhqPPqHPeqnrpjVwjrlS7tAcBkQ6OE7PgFQ4CSmmnwc1ZSRym1+ZA9glZIg5b5la2gRDg+ufyDLlc34jQq8e5vmCoC4pvXhKrniAqMwONxHlcS/zfovGgc9y0U9SQ=
   email: false

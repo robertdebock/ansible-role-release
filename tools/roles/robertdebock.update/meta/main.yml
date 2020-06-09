@@ -5,22 +5,19 @@ galaxy_info:
   description: Install updates on your system.
   license: Apache-2.0
   company: none
-  min_ansible_version: 2.6
+  min_ansible_version: 2.8
 
   platforms:
-    - name: Alpine
+    - name: Amazon
       versions:
-        - all
-    - name: ArchLinux
-      version:
         - all
     - name: Debian
       versions:
         - all
     - name: EL
-      version:
-        - 6
+      versions:
         - 7
+        - 8
     - name: Fedora
       versions:
         - all
@@ -29,17 +26,11 @@ galaxy_info:
         - all
     - name: Ubuntu
       versions:
-        - artful
-        - bionic
+        - all
 
   galaxy_tags:
     - update
-    - alpine
     - centos
-    - debian
-    - fedora
-    - rhel
-    - ubuntu
+    - redhat
 
-dependencies:
-  - robertdebock.reboot
+dependencies: []
