@@ -2,3 +2,5 @@
 # handlers file for release
 - name: reboot
   reboot:
+  when:
+    - release_reboot | bool

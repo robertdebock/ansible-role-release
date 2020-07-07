@@ -47,6 +47,16 @@ For verification `molecule/resources/verify.yml` run after the role has been app
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
 
+## [Role Variables](#role-variables)
+
+These variables are set in `defaults/main.yml`:
+```yaml
+---
+# defaults file for release
+
+# Should the machine be rebooted after changes?
+release_reboot: yes
+```
 
 ## [Requirements](#requirements)
 

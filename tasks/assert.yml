@@ -1,0 +1,6 @@
+---
+- name: test if release_reboot is set correctly
+  assert:
+    that:
+      - release_reboot is defined
+      - release_reboot | type_debug == "bool"
