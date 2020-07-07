@@ -18,5 +18,4 @@ galaxy_info:
     - system
     - installer
 
-dependencies:
-  - robertdebock.reboot
+dependencies: []
