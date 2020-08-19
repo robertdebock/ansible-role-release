@@ -4,3 +4,4 @@
     that:
       - release_reboot is defined
       - release_reboot | type_debug == "bool"
+    quiet: yes
