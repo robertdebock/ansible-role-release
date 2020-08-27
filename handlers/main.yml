@@ -5,4 +5,3 @@
   when:
     - release_reboot | bool
     - ansible_connection != "docker"
-
