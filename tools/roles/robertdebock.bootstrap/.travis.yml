@@ -23,7 +23,6 @@ env:
     - image="debian" tag="bullseye"
     - image="fedora" tag="31"
     - image="fedora" tag="latest"
-    - image="fedora" tag="rawhide"
     - image="opensuse" tag="latest"
     - image="ubuntu" tag="latest"
     - image="ubuntu" tag="bionic"
@@ -37,10 +36,9 @@ install:
   - pip install tox
 
 script:
-  - tox --parallel all
+  - function retry { counter=0 ; until "$@" ; do exit=$? ; counter=$(($counter + 1)) ; if [ $counter -ge 3 ] ; then return $exit ; fi ; done ; return 0; } ; retry tox --parallel all
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
-  slack:
-    secure: COa91NUxAmjU77gUyJ7goURq1RnAaXjNMbraEAuf9NiC4tbe95Qjrk4eZ1TdeXAT/vS5UjURdIE6mrTaZBrKJDOuud0IMa5FCA67+w3/KhHxXSCX7QEvsF4kbv8aPLFhoVyYZzV+tILqhKBswkeGLTvnZxAM2Zlh47URt/riZqT/+HmF9hNjR/ln2Jd75dvnjQpKfuSozhO3T8EgcvU+cKskSWC6hAt3WYnjdRQOyYdAL1X1+DLwYYHQO4vIIGO9fS58Dd3vUmc+IM9/wR2qTR/ED0b0xCjdwnvEHe1+EbjfU5lSsLbGYYZtSibTxf/R4QcXP1ndcRjg/IhWhpJlG0U4NbUuMx7Oqptz3I7FXFh7x88B7reAEz8NK4eVejD5cW9c6osFEry428vvdt/Irht4PV8P8lYL4faR0D8tQWUv4Q7rY0SWSWBsMMB9mxXW0wlDdSq5QKTapaDTZULuFjNgl5ePpM6OhKFdvVtlCuMdfZKTGocWGHOQWIDAztopK5wUFEjatcRRs7Di9+2I+7Uj3rVeAN3Mo3Uv1cSPTNl7sJHhqPPqHPeqnrpjVwjrlS7tAcBkQ6OE7PgFQ4CSmmnwc1ZSRym1+ZA9glZIg5b5la2gRDg+ufyDLlc34jQq8e5vmCoC4pvXhKrniAqMwONxHlcS/zfovGgc9y0U9SQ=
+  slack: "AEo3BmfzYciKxvEhGfhFzpKs9Lvw5uN5yetaMvDWkpoQ2IxuTj3SZIg2VEFBgvg/w9R5ICPcegwymqL8Yq9/PdDGRIFw1LFnL7azHKL+m6AQYrw+vzBEEfZX/IVMqpsV9+feEi+D7+w1gGh3XcqcgNXHT0K022wkSG2inn/7hYdSqNAg8lTQ8Ba7EEi5q/coVZhInaF0NcD2b78KbPsRU13esoJHZpwR/emBBhVN/TUEfRyYotPDy3fT62Im3rokcLorz6mExZzT4Z3lj82erOjZjDJBsl94JjJF8XzeOrwJefgBdPJa7fkliuJFJC66ofQU8LZGFRv2XkABYDRUtOmGB/fhe9KSzBFUlcGUdawrlv3o5+u5R1Faz8Ic/BVb7I3Nt79zjgoUR0SeLuUieUK7a7FAOYtX0YO+A+PHlkvf2hzLAqQp0tn0et8pmCt5gyJL3zsi/UK7xGOeezB5o771sd5Ac21qv89TOR8ybrV1K/ATczIaDE61QOxW0VfbXbAeQXWYVWa6XIgdIWGbwsCTQIk0HPXju4kZxsqBbM0U/cOXOhHFLegi0KRULkSZOd9M+ZqTK6Zc62oVFC5SqA9t+jozO3hcB8XB/hmT6YW3pBYM0E1p1MFB+aWArb4WGoaBC4aAM8C5cj/HH1Bl0I+Yo5GXNXuklxHKX21g9l8="
   email: false

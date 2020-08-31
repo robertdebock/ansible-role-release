@@ -1,16 +1,15 @@
 ---
 # tasks file for reboot
+- name: include assert.yml
+  include_tasks: assert.yml
+
 - name: install requirements
   package:
     name: "{{ reboot_requirements }}"
     state: present
-  register: reboot_install_requirements
-  until: reboot_install_requirements is succeeded
-  retries: 3
 
 - when:
-    - ansible_virtualization_type != "docker"
-    - ansible_virtualization_type != "container"
+    - ansible_connection != "docker"
     - ansible_os_family == "RedHat"
   block:
     - name: check for needs-restarting executable (rhel)
@@ -27,8 +26,7 @@
       when: reboot_rhel_needs_restarting_executable.stat.exists
 
 - when:
-    - ansible_virtualization_type != "docker"
-    - ansible_virtualization_type != "container"
+    - ansible_connection != "docker"
     - ansible_os_family == "Debian"
   block:
     - name: check for needrestart executable (debian)
@@ -44,9 +42,8 @@
       when: reboot_debian_needsrestart_executable.stat.exists
 
 - when:
-    - ansible_virtualization_type != "docker"
-    - ansible_virtualization_type != "container"
+    - ansible_connection != "docker"
     - (reboot_always | bool)
-      or (reboot_rhel_needsrestarting.changed | default(false))
-      or (reboot_debian_needrestarting.changed | default(false))
+      or (reboot_rhel_needsrestarting.changed | default(no))
+      or (reboot_debian_needrestarting.changed | default(no))
   include_tasks: reboot.yml

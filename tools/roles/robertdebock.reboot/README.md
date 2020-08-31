@@ -1,12 +1,12 @@
-# reboot
+# [reboot](#reboot)
 
 The purpose of this role is to reboot your system.
 
-|Travis|GitHub|Quality|Downloads|
-|------|------|-------|---------|
-|[![travis](https://travis-ci.com/robertdebock/ansible-role-reboot.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-reboot)|[![github](https://github.com/robertdebock/ansible-role-reboot/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-reboot/actions)|[![quality](https://img.shields.io/ansible/quality/30570)](https://galaxy.ansible.com/robertdebock/reboot)|[![downloads](https://img.shields.io/ansible/role/d/30570)](https://galaxy.ansible.com/robertdebock/reboot)|
+|Travis|GitHub|Quality|Downloads|Version|
+|------|------|-------|---------|-------|
+|[![travis](https://travis-ci.com/robertdebock/ansible-role-reboot.svg?branch=master)](https://travis-ci.com/robertdebock/ansible-role-reboot)|[![github](https://github.com/robertdebock/ansible-role-reboot/workflows/Ansible%20Molecule/badge.svg)](https://github.com/robertdebock/ansible-role-reboot/actions)|[![quality](https://img.shields.io/ansible/quality/30570)](https://galaxy.ansible.com/robertdebock/reboot)|[![downloads](https://img.shields.io/ansible/role/d/30570)](https://galaxy.ansible.com/robertdebock/reboot)|[![Version](https://img.shields.io/github/release/robertdebock/ansible-role-reboot.svg)](https://github.com/robertdebock/ansible-role-reboot/releases/)|
 
-## Example Playbook
+## [Example Playbook](#example-playbook)
 
 This example is taken from `molecule/resources/converge.yml` and is tested on each push, pull request and release.
 ```yaml
@@ -47,7 +47,7 @@ For verification `molecule/resources/verify.yml` run after the role has been app
 
 Also see a [full explanation and example](https://robertdebock.nl/how-to-use-these-roles.html) on how to use these roles.
 
-## Role Variables
+## [Role Variables](#role-variables)
 
 These variables are set in `defaults/main.yml`:
 ```yaml
@@ -68,7 +68,7 @@ reboot_up_delay: 8
 reboot_message: "Ansible role robertdebock.reboot initiated a reboot."
 ```
 
-## Requirements
+## [Requirements](#requirements)
 
 - Access to a repository containing packages, likely on the internet.
 - A recent version of Ansible. (Tests run on the current, previous and next release of Ansible.)
@@ -81,16 +81,16 @@ The following roles can be installed to ensure all requirements are met, using `
 
 ```
 
-## Context
+## [Context](#context)
 
 This role is a part of many compatible roles. Have a look at [the documentation of these roles](https://robertdebock.nl/) for further information.
 
 Here is an overview of related roles:
 ![dependencies](https://raw.githubusercontent.com/robertdebock/drawings/artifacts/reboot.png "Dependency")
 
-## Compatibility
+## [Compatibility](#compatibility)
 
-This role has been tested on these [container images](https://hub.docker.com/):
+This role has been tested on these [container images](https://hub.docker.com/u/robertdebock):
 
 |container|tags|
 |---------|----|
@@ -108,17 +108,9 @@ The minimum version of Ansible required is 2.8 but tests have been done to:
 - The current version.
 - The development version.
 
-## Exceptions
-
-Some variarations of the build matrix do not work. These are the variations and reasons why the build won't work:
-
-| variation                 | reason                 |
-|---------------------------|------------------------|
-| archlinux/base | New-style module did not handle its own exit |
-| alpine | the `ansible_virtualization_type` is incorrect on GitHub actions. |
 
 
-## Testing
+## [Testing](#testing)
 
 [Unit tests](https://travis-ci.com/robertdebock/ansible-role-reboot) are done on every commit, pull request, release and periodically.
 
@@ -152,12 +144,18 @@ image="centos" tox
 image="debian" tag="stable" tox
 ```
 
-## License
+## [License](#license)
 
 Apache-2.0
 
+## [Contributors](#contributors)
 
-## Author Information
+I'd like to thank everybody that made contributions to this repository. It motivates me, improves the code and is just fun to collaborate.
+
+- [aisbergg](https://github.com/aisbergg)
+- [richardlock](https://github.com/richardlock)
+
+## [Author Information](#author-information)
 
 [Robert de Bock](https://robertdebock.nl/)
 

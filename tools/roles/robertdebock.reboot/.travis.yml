@@ -36,10 +36,9 @@ install:
   - pip install tox
 
 script:
-  - tox --parallel all
+  - function retry { counter=0 ; until "$@" ; do exit=$? ; counter=$(($counter + 1)) ; if [ $counter -ge 3 ] ; then return $exit ; fi ; done ; return 0; } ; retry tox --parallel all
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
-  slack:
-    secure: jkW7fKUH19VtOUeF9Olmh2+864G8JBAkibwWYaAQiFnrVUdZusnskZ53eYox35ckr6ikgTEiaGsVr8Hr+oYnMQ9uwaX9SCe756xCMwncZ2tOhIfcr99roT7P/ku20E5DTybn3KtCbO4PGfydYW7yqV2GihgaTcF9DLPvIldFAuyatoxYpcQL5C89CvXHCqdYY/gsWlmmxVBNB7b+yT2lQPgpbDz09Bfx1H8bOkiLs0TSmSC+imfcEEWcdxwlMRtPiYaWTlB40uRcHjAu3g5bAiEhpwG132uNX36AJNGgK/TZIFRHpaKKTlmeSvogvvKhHpXmT+t9GP9MygCaYI2iefJiUHeSRYtb7Itsxp5XBH6KqPfIOAQ96HCWmHTQHU1IFpKC5H9YxSnVUzWK8WhUXoIiczjoqBWSPrifY9QXkLwpganjqHQ9PJZnEpS/pBNyDFTFepIjFa2f3z/TVODsERzlbzPwFlSXZX3sgE3nagG5VST8+FjjFsF3CPUqgds5lrMd0CnfdxabZoP17983Frc8rkPo9WcrylVKnkdnpAVunRYIeQHdlspswjVefVaWaK17+3JaouG8o1eK65TBvbY/sZxfzWU6ZGPDu39LKOZgI6fiAq2UHuLRep3//diCjHDHrQNLmJRs7uDn0UqBuFbAWCH+c6PngKwxZ53G6Vg=
+  slack: "FEoY3mASqF90TCYAHL8TycD+EWHVn/qyrvQg6p/KNEd6Gq+g6Q2p5DgUez1Pd7218mkqptsn4DHOF/B9gywNmfHR4XAfJzpM7cW+tNH0LKtzRor6nuFR0CSvxUitVYA5ZhfLq7obuByFNYQK1mIq/E86R9H634FaMzAacp7z5Lxbml+QYx6G+G4P/uAXo9fgqO6lKs9F6YAf4X/Zoauk9R6jxfklx1Pl8iMlWddViigBgxUa9B2+MbGby4QHBv1TCVJMnx0EMqZ7Bar0lititnNtBHWt5m8u563mDlIdXv7ubU0dE0MYjd0tnkoR2gDxhJDWyLGpsePNyPBPRV+fgRiHVCT13TbA3fI/OWUPYEi1jODrsXrGqV1yEmx0iot+XCWYJkXD/nkuAj+AbwORYEZScnwm8H42E8UpsCL3+mXOxV+EWRcUqOc9W6AnrdSNHu42Klg7zJsrcxY0i/yOtsBdZl7MHQpetsUXJuJt1DjnXeqcPadi4K2WkHBFyO2HUbbPK0g3Uq+9NVvTq+1BlQ5Jz88HRRGtl+FtvgFowfatIX2GpDrjlNVAZTo2G3kOgnSom8w/A41yBHqI52QQab8BUxZIGLxEFtVmPjieeWU+C5M68kCMoZnz4iqkvgc6OVvHOpbQg3JOVxjlYf7o+gHEzSFzjy/nYguwe5nLS1g="
   email: false
