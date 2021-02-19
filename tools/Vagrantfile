@@ -1,8 +1,4 @@
 Vagrant.configure("2") do |config|
-  config.vm.define "reference-centos-6" do |config|
-    config.vm.box = "centos/6"
-    config.vm.synced_folder '.', '/vagrant', disabled: true
-  end
   config.vm.define "reference-centos-7" do |config|
     config.vm.box = "centos/7"
     config.vm.synced_folder '.', '/vagrant', disabled: true
