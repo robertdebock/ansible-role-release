@@ -1,5 +1,7 @@
 # [release](#release)
 
+THIS ROLE HAS BEEN ARCHIVED AND IS NOT MAINTAINED.
+
 The purpose of this role is to release a fixed set of packages to machines.
 
 |GitHub|GitLab|Quality|Downloads|Version|
